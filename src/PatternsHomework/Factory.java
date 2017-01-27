@@ -1,0 +1,77 @@
+package PatternsHomework;
+
+/**
+ * Created by Tanya on 24.01.2017.
+ */
+public class Factory {
+    private static volatile Factory instance = null;
+
+    enum FigureTypes {
+        Oval, Circle, Rectangular, Square
+    }
+
+    public FigureTypes getEnumObject(){
+        int i = (int)(Math.random()*4);
+        switch (i){
+            case 0: return FigureTypes.Oval;
+            case 1: return FigureTypes.Circle;
+            case 2: return FigureTypes.Rectangular;
+            case 3: return FigureTypes.Square;
+        }
+        return null;
+    }
+
+    private Factory() {
+    }
+
+    public static synchronized Factory sharedFactoryInstance() {
+        if (instance == null) {
+            synchronized (Factory.class) {
+                if (instance == null) {
+                    instance = new Factory();
+                }
+            }
+        }
+        return instance;
+    }
+
+    public FigureInterface getFigureInstance(FigureTypes figureType) {
+        switch (figureType){
+            case Oval:{
+                Point point = new Point(((int)(Math.random()*300)+1), (int)(Math.random()*300)+1);
+                return new Oval.Builder()
+                        .setCenter(point)
+                        .setWidth((int)(Math.random()*10)+1)
+                        .setHeight((int)(Math.random()*10)+1)
+                        .getInstance();
+            }
+            case Circle: {
+                Point point = new Point(((int) (Math.random() * 300)+1), (int) (Math.random() * 300)+1);
+                return new Circle.Builder()
+                        .setCenter(point)
+                        .setWidth((int)(Math.random()*10)+1)
+                        .setHeight((int)(Math.random()*10)+1)
+                        .getInstance();
+            }
+            case Rectangular: {
+                Point point = new Point(((int) (Math.random() * 300)+1), (int) (Math.random() * 300)+1);
+                return new Rectangular.Builder()
+                        .setStartPoint(point)
+                        .setWidth((int)(Math.random()*10)+1)
+                        .setHeight((int)(Math.random()*10)+1)
+                        .getInstance();
+            }
+            case Square:{
+                Point point = new Point(((int)(Math.random()*300)+1), (int)(Math.random()*300)+1);
+                return new Square.Builder()
+                        .setStartPoint(point)
+                        .setWidth((int)(Math.random()*10)+1)
+                        .setHeight((int)(Math.random()*10)+1)
+                        .getInstance();
+            }
+            default:
+                throw new IllegalArgumentException("Wrong class");
+        }
+    }
+
+}
