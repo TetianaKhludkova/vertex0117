@@ -42,7 +42,9 @@ public class FiguresFactory {
                     ThreadLocalRandom.current().nextDouble(0, 100),
                     ThreadLocalRandom.current().nextDouble(0, 100));
 
-            default: return new CircleBuilder().setX(ThreadLocalRandom.current().nextDouble(0, 100)).setY(ThreadLocalRandom.current().nextDouble(0, 100)).setRadius(ThreadLocalRandom.current().nextDouble(0, 100)).createCircle();
+            default: return new Circle(ThreadLocalRandom.current().nextDouble(0, 100),
+                                       ThreadLocalRandom.current().nextDouble(0, 100),
+                                       ThreadLocalRandom.current().nextDouble(0, 100));
 
         }
     }
