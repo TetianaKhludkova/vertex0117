@@ -24,9 +24,9 @@ public class Artist implements ArtistInterface {
     }
 
     private   void makeInitialFiguresArray(){
-        Factory factory = Factory.sharedFactoryInstance();
+        Factory factory = Factory.sharedInstance();
         for (int i=0; i<100; i++){
-            this.getInitialFiguresArray().add(factory.getFigureInstance(factory.getEnumObject()));
+            this.getInitialFiguresArray().add(factory.getFigureInstance(FigureTypes.getEnumObject()));
         }
     }
 
