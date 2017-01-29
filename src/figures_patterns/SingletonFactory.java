@@ -1,7 +1,7 @@
 package figures_patterns;
 
 /**
- *   Produces instances "under the key" calling Builder for instantiation.
+ *   Produces instances "turnkey" calling Builder for instantiation.
  */
 public class SingletonFactory {
 
