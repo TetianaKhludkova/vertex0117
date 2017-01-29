@@ -25,6 +25,16 @@ public class Rectangular implements Figure {
     }
 
     @Override
+    public void translateX(int dX) {
+        square.translateX(dX);
+    }
+
+    @Override
+    public void translateY(int dY) {
+        square.translateY(dY);
+    }
+
+    @Override
     public void resizeXDimension(int xDimension) throws IllegalArgumentException {
         if(xDimension > 0) {
             square.resizeXDimension(xDimension);
@@ -46,6 +56,26 @@ public class Rectangular implements Figure {
     public String dimensionsToString() {
         return square.dimensionsToString() +
                 "; height=" + height;
+    }
+
+    @Override
+    public int leftBorder() {
+        return square.leftBorder();
+    }
+
+    @Override
+    public int rightBorder() {
+        return square.rightBorder();
+    }
+
+    @Override
+    public int topBorder() {
+        return square.bottomBorder() + height;
+    }
+
+    @Override
+    public int bottomBorder() {
+        return square.bottomBorder();
     }
 
     public static class Builder {

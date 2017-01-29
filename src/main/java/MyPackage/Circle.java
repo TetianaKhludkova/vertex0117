@@ -25,9 +25,19 @@ public class Circle implements Figure {
     }
 
     @Override
+    public void translateX(int dX) {
+        center = new Point(center.getX() + dX, center.getY());
+    }
+
+    @Override
+    public void translateY(int dY) {
+        center = new Point(center.getX(), center.getY() + dY);
+    }
+
+    @Override
     public void resizeXDimension(int xDimension) throws IllegalArgumentException {
         if(xDimension > 0) {
-            radius = xDimension;
+            radius = xDimension / 2;
         } else {
             throw new IllegalArgumentException("Radius cannot be negative for Circle");
         }
@@ -36,7 +46,7 @@ public class Circle implements Figure {
     @Override
     public void resizeYDimension(int yDimension) throws IllegalArgumentException {
         if(yDimension > 0) {
-            radius = yDimension;
+            radius = yDimension / 2;
         } else {
             throw new IllegalArgumentException("Radius cannot be negative for Circle");
         }
@@ -46,6 +56,26 @@ public class Circle implements Figure {
     public String dimensionsToString() {
         return "center=" + center +
                 "; radius=" + radius;
+    }
+
+    @Override
+    public int leftBorder() {
+        return center.getX() - radius;
+    }
+
+    @Override
+    public int rightBorder() {
+        return center.getX() + radius;
+    }
+
+    @Override
+    public int topBorder() {
+        return center.getY() + radius;
+    }
+
+    @Override
+    public int bottomBorder() {
+        return center.getY() - radius;
     }
 
     public static class Builder {

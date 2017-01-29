@@ -6,12 +6,19 @@ package MyPackage;
 public class ArtistProxy {
 
     private Artist artist;
+    private int initQuantity;
+    private int canvasWidth, canvasHeight;
 
-    public ArtistProxy() {
+    public ArtistProxy(int initQuantity, int canvasWidth, int canvasHeight) {
+        this.initQuantity = initQuantity;
+        this.canvasWidth = canvasWidth;
+        this.canvasHeight = canvasHeight;
     }
 
     public void Paint(int quantity) {
-        artist = new Artist();
+        if (artist == null) {
+            artist = new Artist(initQuantity, canvasWidth, canvasHeight);
+        }
         artist.Paint(quantity);
     }
 

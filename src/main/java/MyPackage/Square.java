@@ -25,6 +25,16 @@ public class Square implements Figure {
     }
 
     @Override
+    public void translateX(int dX) {
+        leftBottomPoint = new Point(leftBottomPoint.getX() + dX, leftBottomPoint.getY());
+    }
+
+    @Override
+    public void translateY(int dY) {
+        leftBottomPoint = new Point(leftBottomPoint.getX(), leftBottomPoint.getY() + dY);
+    }
+
+    @Override
     public void resizeXDimension(int xDimension) throws IllegalArgumentException {
         if(xDimension > 0) {
             width = xDimension;
@@ -46,6 +56,26 @@ public class Square implements Figure {
     public String dimensionsToString() {
         return "leftBottomPoint=" + leftBottomPoint +
                 "; width=" + width;
+    }
+
+    @Override
+    public int leftBorder() {
+        return leftBottomPoint.getX();
+    }
+
+    @Override
+    public int rightBorder() {
+        return leftBottomPoint.getX() + width;
+    }
+
+    @Override
+    public int topBorder() {
+        return leftBottomPoint.getY() + width;
+    }
+
+    @Override
+    public int bottomBorder() {
+        return leftBottomPoint.getY();
     }
 
     public static class Builder {

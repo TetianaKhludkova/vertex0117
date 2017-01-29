@@ -26,6 +26,16 @@ public class Oval implements Figure {
     }
 
     @Override
+    public void translateX(int dX) {
+        circle.translateX(dX);
+    }
+
+    @Override
+    public void translateY(int dY) {
+        circle.translateY(dY);
+    }
+
+    @Override
     public void resizeXDimension(int xDimension) throws IllegalArgumentException {
         if(xDimension > 0) {
             circle.resizeXDimension(xDimension);
@@ -37,7 +47,7 @@ public class Oval implements Figure {
     @Override
     public void resizeYDimension(int yDimension) throws IllegalArgumentException {
         if(yDimension > 0) {
-            yRadius = yDimension;
+            yRadius = yDimension / 2;
         } else {
             throw new IllegalArgumentException("Width cannot be negative for Rectangular");
         }
@@ -47,6 +57,26 @@ public class Oval implements Figure {
     public String dimensionsToString() {
         return circle.dimensionsToString() +
                 "; yRadius=" + yRadius;
+    }
+
+    @Override
+    public int leftBorder() {
+        return circle.leftBorder();
+    }
+
+    @Override
+    public int rightBorder() {
+        return circle.rightBorder();
+    }
+
+    @Override
+    public int topBorder() {
+        return (circle.bottomBorder() + circle.topBorder()) / 2 + yRadius;
+    }
+
+    @Override
+    public int bottomBorder() {
+        return (circle.bottomBorder() + circle.topBorder()) / 2 - yRadius;
     }
 
     public static class Builder {

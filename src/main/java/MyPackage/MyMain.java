@@ -7,7 +7,7 @@ public class MyMain {
 
     public static void main(String[] args){
 
-        ArtistProxy artist = new ArtistProxy();
+        ArtistProxy artist = new ArtistProxy(100, 5000, 5000);
 
         artist.Paint(120);
 
