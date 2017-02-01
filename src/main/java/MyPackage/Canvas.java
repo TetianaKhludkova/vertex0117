@@ -1,3 +1,5 @@
+
+//todo: read java name convention please. Because packages shouldn't contain capital letters.
 package MyPackage;
 
 /**
@@ -7,6 +9,7 @@ public class Canvas {
 
     private int width, height;
 
+    //todo: if you don't use code, then it should be deleted, not commented
     //Canvas leftBottomPoint = (0, 0)
 
     public Canvas(int width, int height) {
@@ -14,6 +17,7 @@ public class Canvas {
         this.height = height;
     }
 
+    //todo: methods should be named starting with lowercase. Only constructors could be started with capital letter.
     private void FitToCanvasSize(Figure figure) {
 
         if ((figure.rightBorder() - figure.leftBorder()) >= width) {
@@ -35,6 +39,7 @@ public class Canvas {
         }
     }
 
+    //todo: the same with methods. If it is unused, then delete it please.
     public void Resize(int newWidth, int newHeight) {
         this.width = newWidth;
         this.height = newHeight;

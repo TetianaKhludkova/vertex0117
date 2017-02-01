@@ -10,6 +10,7 @@ import static java.lang.String.format;
 public class Artist {
 
     private ArrayList<Figure> figures;
+//    todo: should be also static to be written in this way
     private final int INIT_QUANTITY;
     private Canvas canvas;
 
@@ -37,6 +38,7 @@ public class Artist {
 
     }
 
+    //todo: please delete it
     public Artist() {
         figures = new ArrayList<Figure>(0);
         INIT_QUANTITY = 100;
@@ -45,6 +47,7 @@ public class Artist {
     }
 
     public Artist(int quantity, int canvasWidth, int canvasHeight) {
+        //todo: why don;t you init ArrayList with quantity instead of 0?
         figures = new ArrayList<Figure>(0);
         INIT_QUANTITY = quantity;
         canvas = new Canvas(canvasWidth, canvasHeight);

@@ -7,6 +7,7 @@ public class Rectangular implements Figure {
     private Square square;
     private int height;
 
+    //todo: All the same as Oval
     public Rectangular() {
         square = new Square();
         height = 1;

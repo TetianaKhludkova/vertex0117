@@ -5,6 +5,7 @@ package MyPackage;
  */
 public interface Figure {
 
+    //todo: don't you see warning on 'public' word? It means that it is unnecessary here
     public void moveTo(int newX, int newY);
 
     public void translateX(int dX);

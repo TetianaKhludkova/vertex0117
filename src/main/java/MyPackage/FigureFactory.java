@@ -22,6 +22,7 @@ public class FigureFactory {
         return instance;
     }
 
+    //todo: int[] is not so good as a holder for parameters.
     public Figure getFigure(String name, int[] parameters) {
         if ("Square".equalsIgnoreCase(name)  && (parameters.length >= 3)){
             return new Square.Builder()

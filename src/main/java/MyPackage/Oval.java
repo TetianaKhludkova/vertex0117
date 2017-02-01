@@ -8,6 +8,7 @@ public class Oval implements Figure {
     private Circle circle;
     private int yRadius;
 
+    //todo: the same here, should be private and with no initialization.
     public Oval() {
         circle = new Circle();
         yRadius = 1;
@@ -37,6 +38,7 @@ public class Oval implements Figure {
 
     @Override
     public void resizeXDimension(int xDimension) throws IllegalArgumentException {
+        //todo: I'm pretty sure that no if is needed here. This check would be done in circle.
         if(xDimension > 0) {
             circle.resizeXDimension(xDimension);
         } else {
@@ -69,6 +71,7 @@ public class Oval implements Figure {
         return circle.rightBorder();
     }
 
+    //todo: what about circle.getCenter.getY instead of (circle.bottomBorder() + circle.topBorder()) / 2 ?
     @Override
     public int topBorder() {
         return (circle.bottomBorder() + circle.topBorder()) / 2 + yRadius;
@@ -79,6 +82,7 @@ public class Oval implements Figure {
         return (circle.bottomBorder() + circle.topBorder()) / 2 - yRadius;
     }
 
+    //todo: the same as a circle's Builder
     public static class Builder {
         private int centerX, centerY;
         private Oval instanse;

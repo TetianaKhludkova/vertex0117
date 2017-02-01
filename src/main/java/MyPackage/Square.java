@@ -4,9 +4,11 @@ package MyPackage;
  * Created by Valery on 1/27/2017.
  */
 public class Square implements Figure {
+    //todo: nice name!
     private Point leftBottomPoint;
     private int width;
 
+    //todo: All the same as Circle
     public Square() {
         leftBottomPoint = new Point();
         width = 1;

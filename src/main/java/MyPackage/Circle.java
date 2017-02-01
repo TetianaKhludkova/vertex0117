@@ -7,6 +7,7 @@ public class Circle implements Figure {
     private Point center;
     private int radius;
 
+    //todo: this constructor should be private and should not initialize variables.
     public Circle() {
         center = new Point();
         radius = 1;
@@ -87,10 +88,13 @@ public class Circle implements Figure {
         }
 
         public Circle Build() {
+            //todo: nice approach but probably figure should be moved in setX/Y methods. Then you could avoid of using additional vars.
             instanse.moveTo(this.centerX, this.centerY);
             return instanse;
         }
 
+        //todo: moreover, I think that you should combine them into one method like - getCenter(Point center).
+        // Since you are producing inconsistent data while setting only X or Y
         public Builder setCenterX(int x) {
             this.centerX = x;
             return this;

@@ -3,6 +3,7 @@ package MyPackage;
 /**
  * Created by Valery on 1/27/2017.
  */
+//todo: proxy should implement the same interface!
 public class ArtistProxy {
 
     private Artist artist;
