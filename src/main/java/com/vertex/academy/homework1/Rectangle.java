@@ -1,4 +1,4 @@
-package figures_patterns;
+package com.vertex.academy.homework1;
 
 /**
  * Decorates Square
