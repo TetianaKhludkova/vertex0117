@@ -1,10 +1,11 @@
-package MyPackage;
+package myhomework;
 
 /**
  * Created by Valery on 1/27/2017.
  */
 //todo: proxy should implement the same interface!
-public class ArtistProxy {
+//done
+public class ArtistProxy implements ArtistInterface {
 
     private Artist artist;
     private int initQuantity;
@@ -16,11 +17,12 @@ public class ArtistProxy {
         this.canvasHeight = canvasHeight;
     }
 
-    public void Paint(int quantity) {
+    @Override
+    public void paint(int quantity) {
         if (artist == null) {
             artist = new Artist(initQuantity, canvasWidth, canvasHeight);
         }
-        artist.Paint(quantity);
+        artist.paint(quantity);
     }
 
 }

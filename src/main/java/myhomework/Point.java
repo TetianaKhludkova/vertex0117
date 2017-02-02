@@ -1,4 +1,4 @@
-package MyPackage;
+package myhomework;
 
 /**
  * Created by Valery on 1/27/2017.
@@ -12,18 +12,13 @@ public class Point {
         this.y = y;
     }
 //todo: this constructor shouldn't exist, since this point would be valuable only if we'd like to point to the coordinates origin
-    public Point() {
-        this.x = 0;
-        this.y = 0;
-    }
+//done
 
     public int getX() {
         return x;
     }
 
-    public int getY() {
-        return y;
-    }
+    public int getY() { return y; }
 
     @Override
     public String toString() {

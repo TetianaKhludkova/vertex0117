@@ -1,17 +1,17 @@
-package MyPackage;
+package myhomework;
 
 /**
  * Created by Valery on 1/27/2017.
  */
 public class Square implements Figure {
     //todo: nice name!
-    private Point leftBottomPoint;
+    //done
+    private Point leftBottomCorner;
     private int width;
 
     //todo: All the same as Circle
-    public Square() {
-        leftBottomPoint = new Point();
-        width = 1;
+    //done
+    private Square() {
     }
 
     @Override
@@ -23,17 +23,17 @@ public class Square implements Figure {
 
     @Override
     public void moveTo(int newX, int newY) {
-        leftBottomPoint = new Point(newX, newY);
+        leftBottomCorner = new Point(newX, newY);
     }
 
     @Override
     public void translateX(int dX) {
-        leftBottomPoint = new Point(leftBottomPoint.getX() + dX, leftBottomPoint.getY());
+        leftBottomCorner = new Point(leftBottomCorner.getX() + dX, leftBottomCorner.getY());
     }
 
     @Override
     public void translateY(int dY) {
-        leftBottomPoint = new Point(leftBottomPoint.getX(), leftBottomPoint.getY() + dY);
+        leftBottomCorner = new Point(leftBottomCorner.getX(), leftBottomCorner.getY() + dY);
     }
 
     @Override
@@ -41,7 +41,7 @@ public class Square implements Figure {
         if(xDimension > 0) {
             width = xDimension;
         } else {
-            throw new IllegalArgumentException("Width cannot be negative for Square");
+            throw new IllegalArgumentException("Width cannot be negative");
         }
     }
 
@@ -50,56 +50,54 @@ public class Square implements Figure {
         if(yDimension > 0) {
             width = yDimension;
         } else {
-            throw new IllegalArgumentException("Width cannot be negative for Square");
+            throw new IllegalArgumentException("Width cannot be negative");
         }
     }
 
     @Override
     public String dimensionsToString() {
-        return "leftBottomPoint=" + leftBottomPoint +
+        return "leftBottomCorner=" + leftBottomCorner +
                 "; width=" + width;
     }
 
     @Override
     public int leftBorder() {
-        return leftBottomPoint.getX();
+        return leftBottomCorner.getX();
     }
 
     @Override
     public int rightBorder() {
-        return leftBottomPoint.getX() + width;
+        return leftBottomCorner.getX() + width;
     }
 
     @Override
     public int topBorder() {
-        return leftBottomPoint.getY() + width;
+        return leftBottomCorner.getY() + width;
     }
 
     @Override
     public int bottomBorder() {
-        return leftBottomPoint.getY();
+        return leftBottomCorner.getY();
+    }
+
+    public Point getCorner() {
+        return new Point(leftBottomCorner.getX(), leftBottomCorner.getY());
     }
 
     public static class Builder {
-        private int centerX, centerY;
         private Square instanse;
 
         public Builder() {
             instanse = new Square();
+            instanse.leftBottomCorner = new Point(0, 0);
         }
 
         public Square Build() {
-            instanse.moveTo(this.centerX, this.centerY);
             return instanse;
         }
 
-        public Builder setCenterX(int x) {
-            this.centerX = x;
-            return this;
-        }
-
-        public Builder setCenterY(int y) {
-            this.centerY = y;
+        public Builder setCorner(Point corner) {
+            instanse.moveTo(corner.getX(), corner.getY());
             return this;
         }
 

@@ -1,4 +1,4 @@
-package MyPackage;
+package myhomework;
 
 /**
  * Created by Valery on 1/27/2017.
@@ -8,9 +8,8 @@ public class Rectangular implements Figure {
     private int height;
 
     //todo: All the same as Oval
-    public Rectangular() {
-        square = new Square();
-        height = 1;
+    //done
+    private Rectangular() {
     }
 
     @Override
@@ -37,11 +36,7 @@ public class Rectangular implements Figure {
 
     @Override
     public void resizeXDimension(int xDimension) throws IllegalArgumentException {
-        if(xDimension > 0) {
-            square.resizeXDimension(xDimension);
-        } else {
-            throw new IllegalArgumentException("Width cannot be negative for Rectangular");
-        }
+        square.resizeXDimension(xDimension);
     }
 
     @Override
@@ -49,7 +44,7 @@ public class Rectangular implements Figure {
         if(yDimension > 0) {
             height = yDimension;
         } else {
-            throw new IllegalArgumentException("Width cannot be negative for Rectangular");
+            throw new IllegalArgumentException("Width cannot be negative");
         }
     }
 
@@ -79,26 +74,24 @@ public class Rectangular implements Figure {
         return square.bottomBorder();
     }
 
+    public Point getCorner() {
+        return square.getCorner();
+    }
+
     public static class Builder {
-        private int centerX, centerY;
         private Rectangular instanse;
 
         public Builder() {
             instanse = new Rectangular();
+            instanse.square = new Square.Builder().Build();
         }
 
         public Rectangular Build() {
-            instanse.moveTo(this.centerX, this.centerY);
             return instanse;
         }
 
-        public Builder setCenterX(int x) {
-            this.centerX = x;
-            return this;
-        }
-
-        public Builder setCenterY(int y) {
-            this.centerY = y;
+        public Builder setCorner(Point corner) {
+            instanse.moveTo(corner.getX(), corner.getY());
             return this;
         }
 

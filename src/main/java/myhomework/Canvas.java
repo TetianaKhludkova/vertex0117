@@ -1,6 +1,7 @@
 
 //todo: read java name convention please. Because packages shouldn't contain capital letters.
-package MyPackage;
+//done
+package myhomework;
 
 /**
  * Created by Aile (on Valery) on 1/29/2017.
@@ -10,7 +11,7 @@ public class Canvas {
     private int width, height;
 
     //todo: if you don't use code, then it should be deleted, not commented
-    //Canvas leftBottomPoint = (0, 0)
+    //done
 
     public Canvas(int width, int height) {
         this.width = width;
@@ -18,7 +19,8 @@ public class Canvas {
     }
 
     //todo: methods should be named starting with lowercase. Only constructors could be started with capital letter.
-    private void FitToCanvasSize(Figure figure) {
+    //done
+    private void fitToCanvasSize(Figure figure) {
 
         if ((figure.rightBorder() - figure.leftBorder()) >= width) {
             figure.resizeXDimension(width);
@@ -40,13 +42,10 @@ public class Canvas {
     }
 
     //todo: the same with methods. If it is unused, then delete it please.
-    public void Resize(int newWidth, int newHeight) {
-        this.width = newWidth;
-        this.height = newHeight;
-    }
+    //done
 
-    public void Paint(Figure figure) {
-        FitToCanvasSize(figure);
+    public void paint(Figure figure) {
+        fitToCanvasSize(figure);
         System.out.println(figure.toString());
     }
 

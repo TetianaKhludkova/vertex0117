@@ -1,4 +1,4 @@
-package MyPackage;
+package myhomework;
 
 /**
  * Created by Valery on 1/28/2017.
@@ -9,7 +9,7 @@ public class MyMain {
 
         ArtistProxy artist = new ArtistProxy(100, 5000, 5000);
 
-        artist.Paint(120);
+        artist.paint(120);
 
     }
 }

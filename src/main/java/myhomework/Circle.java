@@ -1,4 +1,4 @@
-package MyPackage;
+package myhomework;
 
 /**
  * Created by Valery on 1/27/2017.
@@ -8,9 +8,8 @@ public class Circle implements Figure {
     private int radius;
 
     //todo: this constructor should be private and should not initialize variables.
-    public Circle() {
-        center = new Point();
-        radius = 1;
+    //done
+    private Circle() {
     }
 
     @Override
@@ -40,7 +39,7 @@ public class Circle implements Figure {
         if(xDimension > 0) {
             radius = xDimension / 2;
         } else {
-            throw new IllegalArgumentException("Radius cannot be negative for Circle");
+            throw new IllegalArgumentException("Radius cannot be negative");
         }
     }
 
@@ -49,7 +48,7 @@ public class Circle implements Figure {
         if(yDimension > 0) {
             radius = yDimension / 2;
         } else {
-            throw new IllegalArgumentException("Radius cannot be negative for Circle");
+            throw new IllegalArgumentException("Radius cannot be negative");
         }
     }
 
@@ -79,29 +78,29 @@ public class Circle implements Figure {
         return center.getY() - radius;
     }
 
+    public Point getCenter() {
+        return new Point(center.getX(), center.getY());
+    }
+
     public static class Builder {
-        private int centerX, centerY;
         private Circle instanse;
 
         public Builder() {
             instanse = new Circle();
+            instanse.center = new Point(0, 0);
         }
 
         public Circle Build() {
             //todo: nice approach but probably figure should be moved in setX/Y methods. Then you could avoid of using additional vars.
-            instanse.moveTo(this.centerX, this.centerY);
+            //done
             return instanse;
         }
 
         //todo: moreover, I think that you should combine them into one method like - getCenter(Point center).
         // Since you are producing inconsistent data while setting only X or Y
-        public Builder setCenterX(int x) {
-            this.centerX = x;
-            return this;
-        }
-
-        public Builder setCenterY(int y) {
-            this.centerY = y;
+        //done
+        public Builder setCenter(Point center) {
+            instanse.moveTo(center.getX(), center.getY());
             return this;
         }
 

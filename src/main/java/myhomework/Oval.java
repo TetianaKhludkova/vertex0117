@@ -1,4 +1,4 @@
-package MyPackage;
+package myhomework;
 
 /**
  * Created by Valery on 1/27/2017.
@@ -9,9 +9,8 @@ public class Oval implements Figure {
     private int yRadius;
 
     //todo: the same here, should be private and with no initialization.
-    public Oval() {
-        circle = new Circle();
-        yRadius = 1;
+    //done
+    private Oval() {
     }
 
     @Override
@@ -39,11 +38,8 @@ public class Oval implements Figure {
     @Override
     public void resizeXDimension(int xDimension) throws IllegalArgumentException {
         //todo: I'm pretty sure that no if is needed here. This check would be done in circle.
-        if(xDimension > 0) {
-            circle.resizeXDimension(xDimension);
-        } else {
-            throw new IllegalArgumentException("Width cannot be negative for Rectangular");
-        }
+        //done
+        circle.resizeXDimension(xDimension);
     }
 
     @Override
@@ -51,7 +47,7 @@ public class Oval implements Figure {
         if(yDimension > 0) {
             yRadius = yDimension / 2;
         } else {
-            throw new IllegalArgumentException("Width cannot be negative for Rectangular");
+            throw new IllegalArgumentException("Width cannot be negative");
         }
     }
 
@@ -72,37 +68,37 @@ public class Oval implements Figure {
     }
 
     //todo: what about circle.getCenter.getY instead of (circle.bottomBorder() + circle.topBorder()) / 2 ?
+    //done
     @Override
     public int topBorder() {
-        return (circle.bottomBorder() + circle.topBorder()) / 2 + yRadius;
+        return circle.getCenter().getY() + yRadius;
     }
 
     @Override
     public int bottomBorder() {
-        return (circle.bottomBorder() + circle.topBorder()) / 2 - yRadius;
+        return circle.getCenter().getY() - yRadius;
+    }
+
+    public Point getCenter() {
+        return circle.getCenter();
     }
 
     //todo: the same as a circle's Builder
+    //done
     public static class Builder {
-        private int centerX, centerY;
         private Oval instanse;
 
         public Builder() {
             instanse = new Oval();
+            instanse.circle = new Circle.Builder().Build();
         }
 
         public Oval Build() {
-            instanse.moveTo(this.centerX, this.centerY);
             return instanse;
         }
 
-        public Builder setCenterX(int x) {
-            this.centerX = x;
-            return this;
-        }
-
-        public Builder setCenterY(int y) {
-            this.centerY = y;
+        public Builder setCenter(Point center) {
+            instanse.moveTo(center.getX(), center.getY());
             return this;
         }
 
