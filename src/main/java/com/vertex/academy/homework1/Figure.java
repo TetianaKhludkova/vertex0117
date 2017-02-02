@@ -9,7 +9,7 @@ public interface Figure {
 
     void draw();
 
-    String toString();
+    String toString();  //this is for Decorator ability to draw oval over the circle, changing its text
 
     void movePoint(int x, int y);
 
