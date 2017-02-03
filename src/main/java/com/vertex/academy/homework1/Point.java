@@ -1,4 +1,4 @@
-package PatternsHomework;
+package com.vertex.academy.homework1;
 
 
 public class Point implements FigureInterface {
@@ -18,7 +18,7 @@ public class Point implements FigureInterface {
         return y;
     }
 
-    @Override
+
     public void draw() {
 
     }

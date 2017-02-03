@@ -1,15 +1,24 @@
-package PatternsHomework;
-
+package com.vertex.academy.homework1;
 
 /**
  * Created by Tanya on 23.01.2017.
  */
-public class Square implements FigureInterface {
-
-    private int leftTopX;
-    private int leftTopY;
+public class Circle  implements FigureInterface {
+    private int centerX;
+    private int centerY;
     private  int width;
     private int height;
+
+    protected Circle() {
+    }
+
+    public int getCenterX() {
+        return centerX;
+    }
+
+    public int getCenterY() {
+        return centerY;
+    }
 
     public int getWidth() {
         return width;
@@ -19,18 +28,7 @@ public class Square implements FigureInterface {
         return height;
     }
 
-    public int getLeftTopX() {
-        return leftTopX;
-    }
 
-    public int getLeftTopY() {
-        return leftTopY;
-    }
-
-    protected Square() {
-    }
-
-    @Override
     public void draw() {
         System.out.println(this.toString());
     }
@@ -40,20 +38,19 @@ public class Square implements FigureInterface {
         String className = this.getClass().toString();
         int index = className.trim().lastIndexOf(".");
         className = className.substring(index+1);
-        return (className+" : left top point( "+this.getLeftTopX()+", "+ getLeftTopY()+"), width: " +this.getWidth()+", height: "+ this.getHeight());
+        return (className+" : center( "+ this.getCenterX()+", "+ this.getCenterY()+"), width: " +this.getWidth()+", height: "+ this.getHeight());
     }
 
-
     public static class Builder{
-        Square instance;
+        Circle instance;
 
         public Builder() {
-            instance = new Square();
+            instance = new Circle();
         }
 
-        Builder setStartPoint(Point point) {
-            instance.leftTopX = point.getX();
-            instance.leftTopY = point.getY();
+        Builder setCenter(Point point) {
+            instance.centerX = point.getX();
+            instance.centerY = point.getY();
             return this;
         }
 

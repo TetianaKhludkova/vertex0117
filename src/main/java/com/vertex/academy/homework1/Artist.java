@@ -1,4 +1,4 @@
-package PatternsHomework;
+package com.vertex.academy.homework1;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,18 +7,17 @@ import java.util.List;
  * Created by Tanya on 25.01.2017.
  */
 public class Artist implements ArtistInterface {
-    private List<FigureInterface> initialFiguresArray = new ArrayList<>();
-    private List<FigureInterface> figuresArray = new ArrayList<>();
+    private List<FigureInterface> initialFiguresArray = new ArrayList<FigureInterface>();
+    private List<FigureInterface> figuresArray = new ArrayList<FigureInterface>();
 
     public Artist(){
         this.makeInitialFiguresArray();
     }
 
-    @Override
     public List<FigureInterface> getInitialFiguresArray(){
         return initialFiguresArray;
     }
-    @Override
+
     public List<FigureInterface> getFiguresArray(){
         return figuresArray;
     }

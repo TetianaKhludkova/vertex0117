@@ -1,4 +1,4 @@
-package PatternsHomework;
+package com.vertex.academy.homework1;
 
 import java.util.List;
 
@@ -8,14 +8,14 @@ import java.util.List;
 public class ArtistProxy implements ArtistInterface{
     Artist instance;
 
-    @Override
+
     public List<FigureInterface> getInitialFiguresArray(){
         if (instance == null){
             instance = getArtist();
         }
         return instance.getInitialFiguresArray();
     }
-    @Override
+
     public List<FigureInterface> getFiguresArray(){
         if (instance == null){
             instance = getArtist();
@@ -23,7 +23,7 @@ public class ArtistProxy implements ArtistInterface{
         return instance.getFiguresArray();
     }
 
-    @Override
+
     public List<FigureInterface> getFiguresArray(int number) {
         if (instance == null){
             instance = getArtist();

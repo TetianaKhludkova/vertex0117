@@ -1,4 +1,4 @@
-package PatternsHomework;
+package com.vertex.academy.homework1;
 
 /**
  * Created by Tanya on 25.01.2017.
