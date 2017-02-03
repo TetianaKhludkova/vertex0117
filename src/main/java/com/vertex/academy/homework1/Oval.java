@@ -4,7 +4,9 @@ package com.vertex.academy.homework1;
 /**
  * Created by Tanya on 23.01.2017.
  */
+//todo: isn't an oval should be a wrapper for a circle?
 public class Oval extends Circle implements FigureInterface{
+    //todo: why don;t you keep point as an object? why have you created it if you don't use it?
     private int centerX;
     private int centerY;
     private  int width;
@@ -56,6 +58,7 @@ public class Oval extends Circle implements FigureInterface{
         }
     }
 
+    //todo: what are they for?
     Oval setCenter(int centerX, int centerY) {
         this.centerX = centerX;
         this.centerY = centerY;

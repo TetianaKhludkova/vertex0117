@@ -1,6 +1,7 @@
 package com.vertex.academy.homework1;
 
 
+//todo: why does it implement FigureInterface? oO
 public class Point implements FigureInterface {
     private  final int x;
     private final int y;

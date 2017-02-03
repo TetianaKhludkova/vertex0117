@@ -6,6 +6,7 @@ import java.util.List;
  * Created by Tanya on 27.01.2017.
  */
 public class ArtistProxy implements ArtistInterface{
+    //todo: Idea writes that access could be private. I am agree
     Artist instance;
 
 

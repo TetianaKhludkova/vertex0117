@@ -23,6 +23,7 @@ public class Factory {
     public FigureInterface getFigureInstance(FigureTypes figureType) {
         switch (figureType){
             case Oval:{
+                //todo: why 300? what does it mean? please get rid of magic numbers, keep them as a constants.
                 Point point = new Point(((int)(Math.random()*300)+1), (int)(Math.random()*300)+1);
                 return new Oval.Builder()
                         .setCenter(point)

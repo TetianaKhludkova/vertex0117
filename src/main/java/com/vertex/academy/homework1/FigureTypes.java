@@ -6,6 +6,7 @@ package com.vertex.academy.homework1;
 public enum FigureTypes {
     Oval, Circle, Rectangular, Square;
 
+//    todo: name getRandomEnumObject would fit better
     public static FigureTypes getEnumObject(){
         int i = (int)(Math.random()*4);
         switch (i){
