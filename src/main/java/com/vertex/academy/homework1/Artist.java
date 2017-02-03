@@ -7,8 +7,18 @@ import java.util.List;
  * Created by Tanya on 25.01.2017.
  */
 public class Artist implements ArtistInterface {
+    public static Canvas canvas = new Canvas();
     private List<FigureInterface> initialFiguresArray = new ArrayList<FigureInterface>();
     private List<FigureInterface> figuresArray = new ArrayList<FigureInterface>();
+    public static final int numberOfInitialFigures =20;
+
+    public static int getCanvasHeight(){
+        return canvas.getHeight();
+    }
+
+    public static int getCanvasWidth(){
+        return canvas.getWidth();
+    }
 
     public Artist(){
         this.makeInitialFiguresArray();
@@ -24,7 +34,7 @@ public class Artist implements ArtistInterface {
 
     private   void makeInitialFiguresArray(){
         Factory factory = Factory.sharedInstance();
-        for (int i=0; i<100; i++){
+        for (int i = 0; i< numberOfInitialFigures; i++){
             this.getInitialFiguresArray().add(factory.getFigureInstance(FigureTypes.getEnumObject()));
         }
     }
@@ -33,19 +43,20 @@ public class Artist implements ArtistInterface {
 
         //todo: could you please set 100 as a constant with clear name?
         //todo: there is another bug - if you call method twice, it could appear that there would be not enough Figures in the initialFiguresArray
-        if(number>100) {
-            while (number > 100) {
-                for (int i = 0; i < 100; i++) {
+        if(number>numberOfInitialFigures) {
+            while (number > numberOfInitialFigures) {
+                for (int i = 0; i < numberOfInitialFigures; i++) {
                     this.getFiguresArray().add(this.getInitialFiguresArray().get(i));
                 }
-                for (int i = 0; i < 100; i++) {
-                    //todo: please read java dic for remove method. It could not only delete, but return the element that was deleted. So you can combine first and second cycles.
+                //todo: please read java dic for remove method. It could not only delete, but return the element that was deleted. So you can combine first and second cycles.
+                for (int i = 0; i < numberOfInitialFigures; i++) {
                     this.getInitialFiguresArray().remove(i);
                 }
                 this.makeInitialFiguresArray();
-                number -= 100;
+                number -= numberOfInitialFigures;
             }
-        }else if (number < 100) { //todo: what would you do if number is 100?
+        }else if (number < numberOfInitialFigures) {
+         //todo: what would you do if number is 100?
                 for (int i = 0; i < number; i++) {
                     this.getFiguresArray().add(this.getInitialFiguresArray().get(i));
                 }
@@ -61,5 +72,34 @@ public class Artist implements ArtistInterface {
             figure.draw();
         }
     }
+
+
+    static class Canvas{
+        private int width;
+        private int height;
+
+        public int getWidth() {
+            return width;
+        }
+
+
+        public int getHeight() {
+            return height;
+        }
+
+        Canvas(){
+            this.setHeight((int)(Math.random()*50+300));
+            this.setWidth((int)(Math.random()*50+300));
+        }
+
+        private void setWidth(int width) {
+            this.width = width;
+        }
+
+        private void setHeight(int height) {
+            this.height = height;
+        }
+    }
+
 
 }

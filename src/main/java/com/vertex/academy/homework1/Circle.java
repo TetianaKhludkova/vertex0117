@@ -12,6 +12,22 @@ public class Circle  implements FigureInterface {
     protected Circle() {
     }
 
+    Circle setCenter(int centerX, int centerY) {
+        this.centerX = centerX;
+        this.centerY = centerY;
+        return this;
+    }
+
+    Circle setWidth(int width){
+        this.width = width;
+        return this;
+    }
+
+    Circle setHeight(int height){
+        this.height = height;
+        return this;
+    }
+
     public int getCenterX() {
         return centerX;
     }
@@ -60,14 +76,36 @@ public class Circle  implements FigureInterface {
         }
 
         Builder setHeight(int height){
-            instance.height = height;
+            instance.height = instance.width;
             return this;
         }
 
-        public FigureInterface getInstance(){
-            return instance;
+        public FigureInterface getInstance() {
+            if (instance.isPlacedInCanvas()) {
+                return instance;
+            } else {
+                System.out.println("It's unreal to place figure in canvas");
+            }
+            return null;
         }
     }
 
+    public boolean isPlacedInCanvas(){
+        boolean isPlacedInCanvas=false;
+        while (isPlacedInCanvas==false){
+            if ((this.getCenterX()-this.getWidth()>0)&&(this.getCenterX()+this.getWidth()<Artist.getCanvasWidth())&&((this.getCenterY()-this.getHeight()>0)&&(this.getCenterY()+this.getHeight()<Artist.getCanvasHeight())) ) {
+                isPlacedInCanvas=true;
+            }else{
+                this.setCenter(((int) (Math.random() * Artist.getCanvasWidth())+1), ((int) (Math.random() * Artist.getCanvasHeight())+1));
+                if ((this.getCenterX()-this.getWidth()>0)&&(this.getCenterX()+this.getWidth()<Artist.getCanvasWidth())&&((this.getCenterY()-this.getHeight()>0)&&(this.getCenterY()+this.getHeight()<Artist.getCanvasHeight())) ) {
+                    isPlacedInCanvas=true;
+                }else{
+                    this.setWidth(this.getWidth()/2);
+                    this.setHeight(this.getHeight()/2);
+                }
+            }
+        }
+        return isPlacedInCanvas;
+    }
 
 }

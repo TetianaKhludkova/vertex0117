@@ -11,6 +11,7 @@ public class Point implements FigureInterface {
         this.y = y;
     }
 
+
     public int getX() {
         return x;
     }

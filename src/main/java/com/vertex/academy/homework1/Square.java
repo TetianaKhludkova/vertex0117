@@ -12,6 +12,22 @@ public class Square implements FigureInterface {
     private  int width;
     private int height;
 
+    Square setCenter(int leftTopX, int leftTopY) {
+        this.leftTopX = leftTopX;
+        this.leftTopY = leftTopY;
+        return this;
+    }
+
+    Square setWidth(int width){
+        this.width = width;
+        return this;
+    }
+
+    Square setHeight(int height){
+        this.height = height;
+        return this;
+    }
+
     public int getWidth() {
         return width;
     }
@@ -69,11 +85,33 @@ public class Square implements FigureInterface {
             return this;
         }
 
-        public FigureInterface getInstance(){
-            return instance;
+        public FigureInterface getInstance() {
+            if (instance.isPlacedInCanvas()) {
+                return instance;
+            } else {
+                System.out.println("It's unreal to place figure in canvas");
+            }
+            return null;
         }
     }
 
+    public boolean isPlacedInCanvas(){
+        boolean isPlacedInCanvas=false;
+        while (isPlacedInCanvas==false){
+            if ((this.getLeftTopX()>0)&&(this.getLeftTopX()+this.getWidth()<Artist.getCanvasWidth())&&((this.getLeftTopX()>0)&&(this.getLeftTopY()+this.getHeight()<Artist.getCanvasHeight())) ) {
+                isPlacedInCanvas=true;
+            }else{
+                this.setCenter(((int) (Math.random() * Artist.getCanvasWidth())+1), ((int) (Math.random() * Artist.getCanvasHeight())+1));
+                if ((this.getLeftTopX()>0)&&(this.getLeftTopX()+this.getWidth()<Artist.getCanvasWidth())&&((this.getLeftTopX()>0)&&(this.getLeftTopY()+this.getHeight()<Artist.getCanvasHeight())) ) {
+                    isPlacedInCanvas=true;
+                }else{
+                    this.setWidth(this.getWidth()/2);
+                    this.setHeight(this.getHeight()/2);
+                }
+            }
+        }
+        return isPlacedInCanvas;
+    }
     //todo: run it and delete then ;)
     public static void main(String[] args) {
         Class clazz = String.class;
