@@ -23,16 +23,16 @@ public class Factory {
     public FigureInterface getFigureInstance(FigureTypes figureType) {
         switch (figureType){
             case Oval:{
-                Point point = new Point(((int)(Math.random()*300)+1), (int)(Math.random()*300)+1);
+                Point point = new Point(((int)(Math.random()*Artist.getCanvasWidth())+1), (int)(Math.random()*Artist.getCanvasWidth())+1);
                 return new Oval.Builder()
                         .setCenter(point)
-                        .setWidth((int)(Math.random()*10)+1)
-                        .setHeight((int)(Math.random()*10)+1)
+                        .setWidth((int)(Math.random()*50)+1)
+                        .setHeight((int)(Math.random()*50)+1)
                         .getInstance();
             }
             case Circle: {
-                Point point = new Point(((int) (Math.random() * 300)+1), (int) (Math.random() * 300)+1);
-                int radius = (int)(Math.random()*10)+1;
+                Point point = new Point(((int) (Math.random() * Artist.getCanvasWidth())+1), (int) (Math.random() * Artist.getCanvasHeight())+1);
+                int radius = (int)(Math.random()*50)+1;
                 return new Circle.Builder()
                         .setCenter(point)
                         .setWidth(radius)
@@ -40,19 +40,20 @@ public class Factory {
                         .getInstance();
             }
             case Rectangular: {
-                Point point = new Point(((int) (Math.random() * 300)+1), (int) (Math.random() * 300)+1);
+                Point point = new Point(((int) (Math.random() * Artist.getCanvasWidth())+1), (int) (Math.random() * Artist.getCanvasWidth())+1);
                 return new Rectangular.Builder()
                         .setStartPoint(point)
-                        .setWidth((int)(Math.random()*10)+1)
-                        .setHeight((int)(Math.random()*10)+1)
+                        .setWidth((int)(Math.random()*50)+1)
+                        .setHeight((int)(Math.random()*50)+1)
                         .getInstance();
             }
             case Square:{
-                Point point = new Point(((int)(Math.random()*300)+1), (int)(Math.random()*300)+1);
+                Point point = new Point(((int)(Math.random()*Artist.getCanvasWidth())+1), (int)(Math.random()*Artist.getCanvasWidth())+1);
+                int side = (int)(Math.random()*50)+1;
                 return new Square.Builder()
                         .setStartPoint(point)
-                        .setWidth((int)(Math.random()*10)+1)
-                        .setHeight((int)(Math.random()*10)+1)
+                        .setWidth(side)
+                        .setHeight(side)
                         .getInstance();
             }
             default:

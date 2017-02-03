@@ -7,8 +7,18 @@ import java.util.List;
  * Created by Tanya on 25.01.2017.
  */
 public class Artist implements ArtistInterface {
+    public static Canvas canvas = new Canvas();
     private List<FigureInterface> initialFiguresArray = new ArrayList<FigureInterface>();
     private List<FigureInterface> figuresArray = new ArrayList<FigureInterface>();
+    public static final int numberOfInitialFigures =20;
+
+    public static int getCanvasHeight(){
+        return canvas.getHeight();
+    }
+
+    public static int getCanvasWidth(){
+        return canvas.getWidth();
+    }
 
     public Artist(){
         this.makeInitialFiguresArray();
@@ -24,25 +34,25 @@ public class Artist implements ArtistInterface {
 
     private   void makeInitialFiguresArray(){
         Factory factory = Factory.sharedInstance();
-        for (int i=0; i<100; i++){
+        for (int i = 0; i< numberOfInitialFigures; i++){
             this.getInitialFiguresArray().add(factory.getFigureInstance(FigureTypes.getEnumObject()));
         }
     }
 
     public List<FigureInterface> getFiguresArray(int number) {
 
-        if(number>100) {
-            while (number > 100) {
-                for (int i = 0; i < 100; i++) {
+        if(number>numberOfInitialFigures) {
+            while (number > numberOfInitialFigures) {
+                for (int i = 0; i < numberOfInitialFigures; i++) {
                     this.getFiguresArray().add(this.getInitialFiguresArray().get(i));
                 }
-                for (int i = 0; i < 100; i++) {
+                for (int i = 0; i < numberOfInitialFigures; i++) {
                     this.getInitialFiguresArray().remove(i);
                 }
                 this.makeInitialFiguresArray();
-                number -= 100;
+                number -= numberOfInitialFigures;
             }
-        }else if (number < 100) {
+        }else if (number < numberOfInitialFigures) {
                 for (int i = 0; i < number; i++) {
                     this.getFiguresArray().add(this.getInitialFiguresArray().get(i));
                 }
@@ -58,5 +68,34 @@ public class Artist implements ArtistInterface {
             figure.draw();
         }
     }
+
+
+    static class Canvas{
+        private int width;
+        private int height;
+
+        public int getWidth() {
+            return width;
+        }
+
+
+        public int getHeight() {
+            return height;
+        }
+
+        Canvas(){
+            this.setHeight((int)(Math.random()*50+300));
+            this.setWidth((int)(Math.random()*50+300));
+        }
+
+        private void setWidth(int width) {
+            this.width = width;
+        }
+
+        private void setHeight(int height) {
+            this.height = height;
+        }
+    }
+
 
 }

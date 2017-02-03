@@ -52,10 +52,14 @@ public class Oval extends Circle implements FigureInterface{
         }
 
         public FigureInterface getInstance(){
-            return instance;
+            if (instance.isPlacedInCanvas()){
+                return instance;
+            }else {
+                System.out.println("It's unreal to place figure in canvas");
+            }
+            return null;
         }
     }
-
     Oval setCenter(int centerX, int centerY) {
         this.centerX = centerX;
         this.centerY = centerY;

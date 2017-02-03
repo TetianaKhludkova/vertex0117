@@ -12,6 +12,23 @@ public class Rectangular extends Square implements FigureInterface {
     protected Rectangular() {
     }
 
+    Rectangular setCenter(int leftTopX, int leftTopY) {
+        this.leftTopX = leftTopX;
+        this.leftTopY = leftTopY;
+        return this;
+    }
+
+    Rectangular setWidth(int width){
+        this.width = width;
+        return this;
+    }
+
+    Rectangular setHeight(int height){
+        this.height = height;
+        return this;
+    }
+
+
     public int getWidth() {
         return width;
     }
@@ -52,8 +69,13 @@ public class Rectangular extends Square implements FigureInterface {
             return this;
         }
 
-        public FigureInterface getInstance(){
-            return instance;
+        public FigureInterface getInstance() {
+            if (instance.isPlacedInCanvas()) {
+                return instance;
+            } else {
+                System.out.println("It's unreal to place figure in canvas");
+            }
+            return null;
         }
     }
 
