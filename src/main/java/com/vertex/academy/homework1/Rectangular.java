@@ -1,9 +1,9 @@
-package com.vertex.academy;
+package com.vertex.academy.homework1;
 
 /**
  * Created by andrew_yashin on 1/22/17.
  */
-public class Rectangular implements Figure{
+public class Rectangular implements Figure {
     private Point leftDownAngle;
     private double length;
     private double height;

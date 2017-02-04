@@ -1,4 +1,4 @@
-package com.vertex.academy;
+package com.vertex.academy.homework1;
 
 import java.util.concurrent.ThreadLocalRandom;
 
