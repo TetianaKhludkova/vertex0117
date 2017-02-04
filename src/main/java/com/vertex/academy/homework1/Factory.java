@@ -20,7 +20,7 @@ public class Factory {
         return instance;
     }
 
-    public FigureInterface getFigureInstance(FigureTypes figureType) {
+    public FigureInterface getFigureInstance(FigureTypesEnum figureType) {
         switch (figureType){
             case Oval:{
                 Point point = new Point(((int)(Math.random()*Artist.getCanvasWidth())+1), (int)(Math.random()*Artist.getCanvasWidth())+1);

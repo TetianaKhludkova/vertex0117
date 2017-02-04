@@ -6,7 +6,7 @@ import java.util.List;
  * Created by Tanya on 27.01.2017.
  */
 public class ArtistProxy implements ArtistInterface{
-    Artist instance;
+    private Artist instance;
 
 
     public List<FigureInterface> getInitialFiguresArray(){

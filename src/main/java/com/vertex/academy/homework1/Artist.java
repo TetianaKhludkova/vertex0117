@@ -10,7 +10,7 @@ public class Artist implements ArtistInterface {
     public static Canvas canvas = new Canvas();
     private List<FigureInterface> initialFiguresArray = new ArrayList<FigureInterface>();
     private List<FigureInterface> figuresArray = new ArrayList<FigureInterface>();
-    public static final int numberOfInitialFigures =20;
+    public static final int numberOfInitialFigures =100;
 
     public static int getCanvasHeight(){
         return canvas.getHeight();
@@ -35,7 +35,7 @@ public class Artist implements ArtistInterface {
     private   void makeInitialFiguresArray(){
         Factory factory = Factory.sharedInstance();
         for (int i = 0; i< numberOfInitialFigures; i++){
-            this.getInitialFiguresArray().add(factory.getFigureInstance(FigureTypes.getEnumObject()));
+            this.getInitialFiguresArray().add(factory.getFigureInstance(FigureTypesEnum.getRandomEnumObject()));
         }
     }
 

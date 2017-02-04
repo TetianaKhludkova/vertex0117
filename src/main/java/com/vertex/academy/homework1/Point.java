@@ -1,7 +1,7 @@
 package com.vertex.academy.homework1;
 
 
-public class Point implements FigureInterface {
+public class Point {
     private  final int x;
     private final int y;
 
@@ -19,8 +19,4 @@ public class Point implements FigureInterface {
         return y;
     }
 
-
-    public void draw() {
-
-    }
 }

@@ -8,6 +8,7 @@ public class MainClass {
     public static void main(String[] args){
         ArtistProxy artist = new ArtistProxy();
         artist.getFiguresArray(10);
+        artist.getFiguresArray(10);
         artist.printFiguresArray();
     }
 }
