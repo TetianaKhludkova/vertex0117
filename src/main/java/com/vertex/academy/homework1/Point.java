@@ -1,4 +1,4 @@
-/*
+package com.vertex.academy.homework1;/*
  * Created by Michael Rudyy on 23.01.2017.
  */
 

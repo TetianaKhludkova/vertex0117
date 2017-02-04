@@ -1,3 +1,5 @@
+package com.vertex.academy.homework1;
+
 /*
  * Created by Michael Rudyy on 23.01.2017.
  */
@@ -6,13 +8,11 @@ public class Oval implements Figure {
     protected int w;
     protected Point point;
 
-    Oval()
-    {
+    Oval() {
 
     }
 
-    Oval(Point point,int H,int W)
-    {
+    Oval(Point point, int H, int W) {
         this.point=point;
         this.h=H;
         this.w=W;
@@ -20,54 +20,45 @@ public class Oval implements Figure {
     }
 
     @Override
-    public Point getPoint()
-    {
+    public Point getPoint() {
         return this.point;
     }
 
     @Override
-    public int getH()
-    {
+    public int getH() {
         return this.h;
     }
 
     @Override
-    public int getW()
-    {
+    public int getW() {
         return this.w;
     }
 
     // Builder
 
-    public static class Builder
-    {
+    public static class Builder {
         Oval instance;
 
-        Builder()
-        {
+        Builder() {
             instance = new Oval();
         }
 
-        Builder setPoint(Point point)
-        {
+        Builder setPoint(Point point) {
             instance.point=point;
             return this;
         }
 
-        Builder setH(int H)
-        {
+        Builder setH(int H) {
             instance.h=H;
             return this;
         }
 
-        Builder setW(int W)
-        {
+        Builder setW(int W) {
             instance.w=W;
             return this;
         }
 
-        Oval getInstance()
-        {
+        Oval getInstance() {
             return instance;
         }
     }
