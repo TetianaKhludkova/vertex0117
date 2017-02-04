@@ -1,7 +1,7 @@
 
 //todo: read java name convention please. Because packages shouldn't contain capital letters.
 //done
-package myhomework;
+package com.vertex.academy.myhomework;
 
 /**
  * Created by Aile (on Valery) on 1/29/2017.

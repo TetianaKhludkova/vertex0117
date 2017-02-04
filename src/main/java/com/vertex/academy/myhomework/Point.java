@@ -1,4 +1,4 @@
-package myhomework;
+package com.vertex.academy.myhomework;
 
 /**
  * Created by Valery on 1/27/2017.

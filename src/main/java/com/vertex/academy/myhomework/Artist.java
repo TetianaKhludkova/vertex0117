@@ -1,4 +1,4 @@
-package myhomework;
+package com.vertex.academy.myhomework;
 
 import java.util.*;
 

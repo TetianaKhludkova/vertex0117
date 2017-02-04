@@ -1,48 +1,54 @@
-package myhomework;
+package com.vertex.academy.myhomework;
 
 /**
  * Created by Valery on 1/27/2017.
  */
-public class Rectangular implements Figure {
-    private Square square;
-    private int height;
-
-    //todo: All the same as Oval
+public class Square implements Figure {
+    //todo: nice name!
     //done
-    private Rectangular() {
+    private Point leftBottomCorner;
+    private int width;
+
+    //todo: All the same as Circle
+    //done
+    private Square() {
     }
 
     @Override
     public String toString() {
-        return "Rectangular{" +
+        return "Square{" +
                 dimensionsToString() +
                 '}';
     }
 
     @Override
     public void moveTo(int newX, int newY) {
-        square.moveTo(newX,  newY);
+        leftBottomCorner = new Point(newX, newY);
     }
 
     @Override
     public void translateX(int dX) {
-        square.translateX(dX);
+        leftBottomCorner = new Point(leftBottomCorner.getX() + dX, leftBottomCorner.getY());
     }
 
     @Override
     public void translateY(int dY) {
-        square.translateY(dY);
+        leftBottomCorner = new Point(leftBottomCorner.getX(), leftBottomCorner.getY() + dY);
     }
 
     @Override
     public void resizeXDimension(int xDimension) throws IllegalArgumentException {
-        square.resizeXDimension(xDimension);
+        if(xDimension > 0) {
+            width = xDimension;
+        } else {
+            throw new IllegalArgumentException("Width cannot be negative");
+        }
     }
 
     @Override
     public void resizeYDimension(int yDimension) throws IllegalArgumentException {
         if(yDimension > 0) {
-            height = yDimension;
+            width = yDimension;
         } else {
             throw new IllegalArgumentException("Width cannot be negative");
         }
@@ -50,43 +56,43 @@ public class Rectangular implements Figure {
 
     @Override
     public String dimensionsToString() {
-        return square.dimensionsToString() +
-                "; height=" + height;
+        return "leftBottomCorner=" + leftBottomCorner +
+                "; width=" + width;
     }
 
     @Override
     public int leftBorder() {
-        return square.leftBorder();
+        return leftBottomCorner.getX();
     }
 
     @Override
     public int rightBorder() {
-        return square.rightBorder();
+        return leftBottomCorner.getX() + width;
     }
 
     @Override
     public int topBorder() {
-        return square.bottomBorder() + height;
+        return leftBottomCorner.getY() + width;
     }
 
     @Override
     public int bottomBorder() {
-        return square.bottomBorder();
+        return leftBottomCorner.getY();
     }
 
     public Point getCorner() {
-        return square.getCorner();
+        return new Point(leftBottomCorner.getX(), leftBottomCorner.getY());
     }
 
     public static class Builder {
-        private Rectangular instanse;
+        private Square instanse;
 
         public Builder() {
-            instanse = new Rectangular();
-            instanse.square = new Square.Builder().Build();
+            instanse = new Square();
+            instanse.leftBottomCorner = new Point(0, 0);
         }
 
-        public Rectangular Build() {
+        public Square Build() {
             return instanse;
         }
 
@@ -97,11 +103,6 @@ public class Rectangular implements Figure {
 
         public Builder setWidth(int width) {
             instanse.resizeXDimension(width);
-            return this;
-        }
-
-        public Builder setHeight(int height) {
-            instanse.resizeYDimension(height);
             return this;
         }
     }
