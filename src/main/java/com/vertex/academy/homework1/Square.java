@@ -4,6 +4,7 @@ package com.vertex.academy.homework1;
 /**
  * Created by Tanya on 23.01.2017.
  */
+//todo: the same as for oval
 public class Square implements FigureInterface {
 
     private int leftTopX;
@@ -53,6 +54,7 @@ public class Square implements FigureInterface {
 
     @Override
     public String toString(){
+        //todo: ouf, it is a bicycle. Please use getSimpleName()
         String className = this.getClass().toString();
         int index = className.trim().lastIndexOf(".");
         className = className.substring(index+1);
@@ -110,5 +112,13 @@ public class Square implements FigureInterface {
         }
         return isPlacedInCanvas;
     }
+    //todo: run it and delete then ;)
+    public static void main(String[] args) {
+        Class clazz = String.class;
 
+        System.out.println( clazz.getName());
+        System.out.println( clazz.getCanonicalName());
+        System.out.println( clazz.getSimpleName());
+        System.out.println( clazz.getTypeName());
+    }
 }

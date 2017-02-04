@@ -26,6 +26,7 @@ public class Factory {
                 Point point = new Point(((int)(Math.random()*Artist.getCanvasWidth())+1), (int)(Math.random()*Artist.getCanvasWidth())+1);
                 return new Oval.Builder()
                         .setCenter(point)
+                        //todo: why 50? what does it mean? please get rid of magic numbers, keep them as a constants.
                         .setWidth((int)(Math.random()*50)+1)
                         .setHeight((int)(Math.random()*50)+1)
                         .getInstance();
