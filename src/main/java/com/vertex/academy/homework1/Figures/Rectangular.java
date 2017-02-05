@@ -1,33 +1,17 @@
-package com.vertex.academy.homework1;
+package com.vertex.academy.homework1.Figures;
+
+import com.vertex.academy.homework1.Artist;
+import com.vertex.academy.homework1.FigureInterface;
+import com.vertex.academy.homework1.Point;
 
 /**
  * Created by Tanya on 23.01.2017.
  */
 public class Rectangular extends Square implements FigureInterface {
-    private int leftTopX;
-    private int leftTopY;
+
     private  int width;
     private int height;
-
-    protected Rectangular() {
-    }
-
-    Rectangular setCenter(int leftTopX, int leftTopY) {
-        this.leftTopX = leftTopX;
-        this.leftTopY = leftTopY;
-        return this;
-    }
-
-    Rectangular setWidth(int width){
-        this.width = width;
-        return this;
-    }
-
-    Rectangular setHeight(int height){
-        this.height = height;
-        return this;
-    }
-
+    private Point point = new Point(((int)(Math.random()* Artist.getCanvasWidth())+1), (int)(Math.random()*Artist.getCanvasHeight())+1);
 
     public int getWidth() {
         return width;
@@ -37,15 +21,6 @@ public class Rectangular extends Square implements FigureInterface {
         return height;
     }
 
-    public int getLeftTopX() {
-        return leftTopX;
-    }
-
-    public int getLeftTopY() {
-        return leftTopY;
-    }
-
-
     public static class Builder{
         Rectangular instance;
 
@@ -53,18 +28,17 @@ public class Rectangular extends Square implements FigureInterface {
             instance = new Rectangular();
         }
 
-        Builder setStartPoint(Point point) {
-            instance.leftTopX = point.getX();
-            instance.leftTopY = point.getY();
+        public Builder setStartPoint(Point point) {
+            instance.point = point;
             return this;
         }
 
-        Builder setWidth(int width){
+        public Builder setWidth(int width){
             instance.width = width;
             return this;
         }
 
-        Builder setHeight(int height){
+        public Builder setHeight(int height){
             instance.height = height;
             return this;
         }

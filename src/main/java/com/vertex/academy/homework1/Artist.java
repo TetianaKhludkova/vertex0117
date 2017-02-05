@@ -8,8 +8,8 @@ import java.util.List;
  */
 public class Artist implements ArtistInterface {
     public static Canvas canvas = new Canvas();
-    private List<FigureInterface> initialFiguresArray = new ArrayList<FigureInterface>();
-    private List<FigureInterface> figuresArray = new ArrayList<FigureInterface>();
+    private List<FigureInterface> initialFiguresArray = new ArrayList<>();
+    private List<FigureInterface> figuresArray = new ArrayList<>();
     public static final int numberOfInitialFigures =100;
 
     public static int getCanvasHeight(){
@@ -34,43 +34,32 @@ public class Artist implements ArtistInterface {
 
     private   void makeInitialFiguresArray(){
         Factory factory = Factory.sharedInstance();
-        for (int i = 0; i< numberOfInitialFigures; i++){
+        for (int i = this.getInitialFiguresArray().size(); i< numberOfInitialFigures; i++){
             this.getInitialFiguresArray().add(factory.getFigureInstance(FigureTypesEnum.getRandomEnumObject()));
         }
     }
 
     public List<FigureInterface> getFiguresArray(int number) {
 
-        //todo: could you please set 100 as a constant with clear name?
-        //todo: there is another bug - if you call method twice, it could appear that there would be not enough Figures in the initialFiguresArray
-        if(number>numberOfInitialFigures) {
-            while (number > numberOfInitialFigures) {
-                for (int i = 0; i < numberOfInitialFigures; i++) {
-                    this.getFiguresArray().add(this.getInitialFiguresArray().get(i));
-                }
-                //todo: please read java dic for remove method. It could not only delete, but return the element that was deleted. So you can combine first and second cycles.
-                for (int i = 0; i < numberOfInitialFigures; i++) {
-                    this.getInitialFiguresArray().remove(i);
+        if(number>= numberOfInitialFigures) {
+            while (number >= numberOfInitialFigures) {
+                for (int i = 0; i < this.getInitialFiguresArray().size(); i++) {
+                    this.getFiguresArray().add(this.getInitialFiguresArray().remove(i));
                 }
                 this.makeInitialFiguresArray();
                 number -= numberOfInitialFigures;
             }
-        }else if (number < numberOfInitialFigures) {
-         //todo: what would you do if number is 100?
-                for (int i = 0; i < number; i++) {
-                    this.getFiguresArray().add(this.getInitialFiguresArray().get(i));
-                }
-                for (int i = 0; i < number; i++) {
-                    this.getInitialFiguresArray().remove(i);
-                }
-        } //todo: if you use getFiguresArray() in whole method, then this return could confuse.
-        return figuresArray;
+        }
+        if (number < numberOfInitialFigures) {
+            for (int i = 0; i < number; i++) {
+                this.getFiguresArray().add(this.getInitialFiguresArray().remove(i));
+            }
+        }
+        return this.getFiguresArray();
     }
 
     public void printFiguresArray(){
-        for(FigureInterface figure : figuresArray){
-            figure.draw();
-        }
+        figuresArray.forEach(FigureInterface::draw);
     }
 
 
