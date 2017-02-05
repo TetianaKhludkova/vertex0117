@@ -4,7 +4,7 @@ package com.vertex.academy.homework1;
  * Final class for creating immutable objects - points.
  */
 public final class Point {
-
+    // TODO: 05.02.17 nice! 
     private final int x;
     private final int y;
 

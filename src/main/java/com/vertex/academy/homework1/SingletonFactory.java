@@ -5,6 +5,7 @@ package com.vertex.academy.homework1;
  */
 public class SingletonFactory {
 
+    //todo: volatile
     private static SingletonFactory factory;
 
     private SingletonFactory() {

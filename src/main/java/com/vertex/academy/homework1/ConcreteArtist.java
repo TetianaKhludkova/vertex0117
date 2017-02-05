@@ -18,6 +18,8 @@ public class ConcreteArtist implements Artist {
         this.numberOfFigures = numberOfFigures;
         Random r = new Random();
 
+        // TODO: 05.02.17 could be generated a separate method like "init()" 
+        // TODO: 05.02.17 please use '<' instead of '<= * -1'  
         for (int i = 0; i <= numberOfFigures - 1; i++) {
             switch (r.nextInt(4)) {
                 case 0:
@@ -41,12 +43,14 @@ public class ConcreteArtist implements Artist {
 
     @Override
     public void drawFigure() {
+        // TODO: 05.02.17 but if I'd like to draw more figures than we have? Artist should init again in this case 
         int number = Math.min(numberOfFigures, figureList.size());
 
         System.out.println("Drawing " + number + " figures...");
         for (int i = 0; i < number; i++) {
 
             figureList.get(i).draw();
+            // TODO: 05.02.17 figure should be deleted from list after it was drawn 
         }
     }
 

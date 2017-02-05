@@ -5,6 +5,8 @@ import java.util.Random;
 /**
  * Created by a on 25.01.17.
  */
+
+// TODO: 05.02.17 the same as circle  
 public class Square implements Figure {
 
     private double side;

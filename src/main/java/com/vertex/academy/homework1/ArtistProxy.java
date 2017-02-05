@@ -21,7 +21,7 @@ public class ArtistProxy implements Artist {
 
      @Override
     public void drawFigure() {
-
+// TODO: 05.02.17 why don't you check if it was created before? not to initialize twice?
         proxyArtist = new ConcreteArtist(quantityOfFigures);
         proxyArtist.drawFigure();
 

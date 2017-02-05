@@ -17,6 +17,7 @@ public class Circle implements Figure {
         this.point = point;
     }
 
+    // TODO: 05.02.17 all vars should be at the wery begining of the class 
     private Point point;
 
     private Circle() {
@@ -47,19 +48,20 @@ public class Circle implements Figure {
         radius *= scale;
     }
 
+    //todo: delete this comment please, I can understand that it is a Builder from the name of a class.
     /**
      *  Builder-pattern realisation
      */
     public static class Builder {
 
-
+        // TODO: 05.02.17 should be private 
         Circle circle;
 
         public Builder() {
             circle = new Circle();
         }
 
-
+        // TODO: 05.02.17 this logic should be in class that use the Circle, not here 
         Builder initRandom() {
             Random r = new Random();
             circle.setRadius(r.nextDouble() * 100);
