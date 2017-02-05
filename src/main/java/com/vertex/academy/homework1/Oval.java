@@ -10,6 +10,7 @@ public class Oval implements Figure {
 
     private Oval(){}
 
+    //todo: why do you use different access levels for getters?
     double getLength(){
         return length;
     }

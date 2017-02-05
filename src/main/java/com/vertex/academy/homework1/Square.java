@@ -7,7 +7,7 @@ package com.vertex.academy.homework1;
 /** Тоже самое что и с кругом.
  * Квадрат = прямоугольник с одинаковыми сторонами.
  */
-
+// TODO: 05.02.17 nice job, but change wrapping mindset and fix couple of small remarks in todos over the code
 public class Square implements Figure {
     private Rectangular rectangular;
 

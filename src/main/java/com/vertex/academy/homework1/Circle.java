@@ -8,9 +8,12 @@ package com.vertex.academy.homework1;
  * только с одинаковой высотой и шириной
  */
 
+// тогда это будет не обвертка, а просто композиция ;)
+
 public class Circle implements Figure{
     private Oval oval;
 
+    //todo: where is Builder for Circle?
     public Circle(double X, double Y, double radius) {
         this.oval = new Oval.OvalBuilder()
                 .setCenter(X,Y)
