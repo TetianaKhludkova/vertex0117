@@ -1,13 +1,32 @@
 package com.vertex.academy.homework1;
 
+import java.util.Objects;
+
 /*
  * Created by Michael Rudyy on 23.01.2017.
  */
 public class Oval implements Figure {
+    // TODO: 05.02.17 should be private
     protected int h;
     protected int w;
     protected Point point;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Oval oval = (Oval) o;
+        return h == oval.h &&
+                w == oval.w &&
+                Objects.equals(point, oval.point);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(h, w, point);
+    }
+
+    // TODO: 05.02.17 should be private
     Oval() {
 
     }
@@ -62,6 +81,7 @@ public class Oval implements Figure {
             return instance;
         }
     }
+//    todo: please delete it! and don't ever commit!
 /*
     public static void main (String args[])
     {

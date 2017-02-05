@@ -4,14 +4,18 @@ package com.vertex.academy.homework1;
  * Created by Michael Rudyy on 23.01.2017.
  */
 public class Rectangular implements Figure {
+
+    // TODO: 05.02.17 should be private
     protected int h;
     protected int w;
     protected Point point;
 
+    // TODO: 05.02.17 should be private
     Rectangular() {
 
     }
 
+    // TODO: 05.02.17 should be deleted since unused!
     Rectangular(Point point, int h, int w) {
         this.point=point;
         this.h=h;
@@ -33,7 +37,7 @@ public class Rectangular implements Figure {
     public int getW() {
         return this.w;
     }
-
+// TODO: 05.02.17 isn't it enough to name a class as Builder and you've decided to write a comment?
     // Builder
 
     public static class Builder {

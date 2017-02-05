@@ -11,6 +11,7 @@ public final class Point
     final int x;
     final int y;
 
+    // TODO: 05.02.17 this logic should be in the class that is using the point, not here. 
     Random random = new Random();
 
     Point()
