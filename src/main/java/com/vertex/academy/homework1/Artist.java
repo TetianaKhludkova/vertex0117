@@ -6,4 +6,5 @@ package  com.vertex.academy.homework1;
 public interface Artist {
 
     void drawFigure () ;
+    void init();
 }

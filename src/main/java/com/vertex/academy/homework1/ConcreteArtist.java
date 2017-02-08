@@ -2,6 +2,7 @@ package com.vertex.academy.homework1;
 
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
@@ -16,11 +17,15 @@ public class ConcreteArtist implements Artist {
 
     public ConcreteArtist(int numberOfFigures) {
         this.numberOfFigures = numberOfFigures;
+
+
+    }
+
+    public void init() {
         Random r = new Random();
 
-        // TODO: 05.02.17 could be generated a separate method like "init()" 
-        // TODO: 05.02.17 please use '<' instead of '<= * -1'  
-        for (int i = 0; i <= numberOfFigures - 1; i++) {
+
+        for (int i = 0; i < numberOfFigures; i++) {
             switch (r.nextInt(4)) {
                 case 0:
                     figureList.add(factory.getFigure(SingletonFactory.FigureName.CIRCLE));
@@ -37,20 +42,40 @@ public class ConcreteArtist implements Artist {
             }
 
         }
-
-
     }
+
+/*    public List<FigureInterface> getFiguresArray(int number) {
+
+        if(number>= numberOfInitialFigures) {
+            while (number >= numberOfInitialFigures) {
+                for (int i = 0; i < this.getInitialFiguresArray().size(); i++) {
+                    this.getFiguresArray().add(this.getInitialFiguresArray().remove(i));
+                }
+                this.makeInitialFiguresArray();
+                number -= numberOfInitialFigures;
+            }
+        }
+        if (number < numberOfInitialFigures) {
+            for (int i = 0; i < number; i++) {
+                this.getFiguresArray().add(this.getInitialFiguresArray().remove(i));
+            }
+        }
+        return this.getFiguresArray();
+    }*/
 
     @Override
     public void drawFigure() {
-        // TODO: 05.02.17 but if I'd like to draw more figures than we have? Artist should init again in this case 
-        int number = Math.min(numberOfFigures, figureList.size());
 
-        System.out.println("Drawing " + number + " figures...");
-        for (int i = 0; i < number; i++) {
+        System.out.println("Drawing " + numberOfFigures + " figures...");
+        Iterator<Figure> iterator = figureList.iterator();
+        for (int i = 0; i < numberOfFigures && iterator.hasNext(); i++) {
 
-            figureList.get(i).draw();
-            // TODO: 05.02.17 figure should be deleted from list after it was drawn 
+            iterator.next().draw();
+
+
+            iterator.remove();
+
+
         }
     }
 

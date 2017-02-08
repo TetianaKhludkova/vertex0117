@@ -11,20 +11,25 @@ public class ArtistProxy implements Artist {
     private int quantityOfFigures;
 
     /**
-     *
-      * @param quantityOfFigures
+     * @param quantityOfFigures
      */
     public ArtistProxy(int quantityOfFigures) {
         this.quantityOfFigures = quantityOfFigures;
     }
 
 
-     @Override
+    @Override
     public void drawFigure() {
-// TODO: 05.02.17 why don't you check if it was created before? not to initialize twice?
-        proxyArtist = new ConcreteArtist(quantityOfFigures);
-        proxyArtist.drawFigure();
 
+        if (proxyArtist == null) {
+            proxyArtist = new ConcreteArtist(quantityOfFigures);
+            proxyArtist.init();
+            proxyArtist.drawFigure();
+
+        }
+    }
+
+   public void init(){
 
     }
 }

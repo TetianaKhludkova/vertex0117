@@ -1,12 +1,14 @@
 package com.vertex.academy.homework1;
 
+import java.util.Random;
+
 /**
- *   Produces instances "turnkey" calling Builder for instantiation.
+ * Produces instances "turnkey" calling Builder for instantiation.
  */
 public class SingletonFactory {
 
-    //todo: volatile
-    private static SingletonFactory factory;
+    private Random r = new Random();
+    private static volatile SingletonFactory factory;
 
     private SingletonFactory() {
     }
@@ -30,19 +32,30 @@ public class SingletonFactory {
         switch (shape) {
             case CIRCLE:
 
-                return new Circle.Builder().initRandom().build();
+                return new Circle.Builder().
+                        setPoint(new Point(r.nextInt(100), r.nextInt(100))).
+                        setRadius(r.nextDouble() * 100).
+                        build();
 
             case OVAL:
 
-                return new Ellipse(new Circle.Builder().initRandom().build());
+                return new Ellipse(new Circle.Builder().setPoint(new Point(r.nextInt(100), r.nextInt(100))).
+                        setRadius(r.nextDouble() * 100).
+                        build());
 
             case SQUARE:
 
-                return new Square.Builder().initRandom().build();
+                return new Square.Builder().
+                        setPoint(new Point(r.nextInt(100), r.nextInt(100))).
+                        setSide(r.nextInt() * 100).
+                        build();
 
             case RECTANGULAR:
 
-                return new Rectangle(new Square.Builder().initRandom().build());
+                return new Rectangle(new Square.Builder().
+                        setPoint(new Point(r.nextInt(100), r.nextInt(100))).
+                        setSide(r.nextInt() * 100).
+                        build());
         }
 
         throw new IllegalArgumentException("There is no such figure");

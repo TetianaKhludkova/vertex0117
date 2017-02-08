@@ -6,19 +6,11 @@ import java.util.Random;
 public class Circle implements Figure {
 
     private double radius;
-
-
-    public void setRadius(double radius) {
-        this.radius = radius;
-    }
-
-
-    public void setPoint(Point point) {
-        this.point = point;
-    }
-
-    // TODO: 05.02.17 all vars should be at the wery begining of the class 
     private Point point;
+
+
+
+
 
     private Circle() {
     }
@@ -48,29 +40,30 @@ public class Circle implements Figure {
         radius *= scale;
     }
 
-    //todo: delete this comment please, I can understand that it is a Builder from the name of a class.
-    /**
-     *  Builder-pattern realisation
-     */
+
     public static class Builder {
 
-        // TODO: 05.02.17 should be private 
-        Circle circle;
+
+        private Circle circle;
 
         public Builder() {
             circle = new Circle();
         }
 
-        // TODO: 05.02.17 this logic should be in class that use the Circle, not here 
-        Builder initRandom() {
-            Random r = new Random();
-            circle.setRadius(r.nextDouble() * 100);
-            circle.setPoint(new Point(r.nextInt(100), r.nextInt(100)));
+
+
+        public Builder setPoint(Point point){
+            circle.point=point;
+            return this;
+        }
+
+        public Builder setRadius(double radius){
+            circle.radius=radius;
             return this;
         }
 
 
-        public Circle build() {
+        public Figure build() {
             return circle;
         }
 

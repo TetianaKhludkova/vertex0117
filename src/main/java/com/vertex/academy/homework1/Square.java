@@ -6,22 +6,14 @@ import java.util.Random;
  * Created by a on 25.01.17.
  */
 
-// TODO: 05.02.17 the same as circle  
 public class Square implements Figure {
 
     private double side;
-
-
-    public void setSide(double side) {
-        this.side = side;
-    }
-
-
-    public void setPoint(Point point) {
-        this.point = point;
-    }
-
     private Point point;
+
+
+
+
 
     private Square() {
     }
@@ -51,28 +43,29 @@ public class Square implements Figure {
         side *= scale;
     }
 
-    /**
-     *  Builder-pattern realisation
-     */
+
     public static class Builder {
 
 
-        Square square;
+       private Square square;
 
         public Builder() {
             square = new Square();
         }
 
+        public Builder setPoint(Point point){
+            square.point=point;
+            return this;
+        }
 
-        Builder initRandom() {
-            Random r = new Random();
-            square.setSide(r.nextDouble() * 100);
-            square.setPoint(new Point(r.nextInt(100), r.nextInt(100)));
+        public Builder setSide(int side){
+           square.side=side;
             return this;
         }
 
 
-        public Square build() {
+
+        public Figure build() {
             return square;
         }
 
