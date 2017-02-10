@@ -21,21 +21,16 @@ public class Listener {
             } else return -1;
         };
         PriorityQueue<People> customerPriorityQueue = new PriorityQueue<>(comparator);
-        addDataToQueue(customerPriorityQueue);
+        for (int i = 0; i < 5; i++) {
+            customerPriorityQueue.add(new Man());
+            customerPriorityQueue.add(new Woman());
+        }
+
         int count = 0;
         while (!customerPriorityQueue.isEmpty()) {
             System.out.println(++count + ": " + customerPriorityQueue.poll());
         }
 
-    }
-
-
-    private static Collection<People> addDataToQueue(Collection<People> collection) {
-        for (int i = 0; i < 5; i++) {
-            collection.add(new Man());
-            collection.add(new Woman());
-        }
-        return collection;
     }
 
 

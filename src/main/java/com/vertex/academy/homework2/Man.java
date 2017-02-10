@@ -10,7 +10,7 @@ public class Man implements People, Comparable<People> {
     private String[] names = {"Tom", "John", "Peter", "Mark", "Arnold"};
     private Random r = new Random();
     private final int length;
-    private final String name;
+    private final String name; 
 
     public Man() {
         this.length = r.nextInt(100);
