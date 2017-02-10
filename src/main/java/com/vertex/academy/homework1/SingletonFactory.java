@@ -1,5 +1,10 @@
 package com.vertex.academy.homework1;
 
+import com.vertex.academy.homework1.figures.Circle;
+import com.vertex.academy.homework1.figures.Ellipse;
+import com.vertex.academy.homework1.figures.Rectangle;
+import com.vertex.academy.homework1.figures.Square;
+
 import java.util.Random;
 
 /**

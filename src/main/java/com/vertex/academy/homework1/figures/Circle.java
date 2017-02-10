@@ -1,6 +1,7 @@
-package com.vertex.academy.homework1;
+package com.vertex.academy.homework1.figures;
 
-import java.util.Random;
+import com.vertex.academy.homework1.Figure;
+import com.vertex.academy.homework1.Point;
 
 
 public class Circle implements Figure {
