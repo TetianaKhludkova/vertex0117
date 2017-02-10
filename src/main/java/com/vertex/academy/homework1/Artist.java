@@ -10,7 +10,7 @@ public class Artist implements ArtistInterface {
     public static Canvas canvas = new Canvas();
     private List<FigureInterface> initialFiguresArray = new ArrayList<>();
     private List<FigureInterface> figuresArray = new ArrayList<>();
-    public static final int numberOfInitialFigures =100;
+    public static final int NUMBER_OF_INITIAL_FIGURES =100;
 
     public static int getCanvasHeight(){
         return canvas.getHeight();
@@ -34,28 +34,33 @@ public class Artist implements ArtistInterface {
 
     private   void makeInitialFiguresArray(){
         Factory factory = Factory.sharedInstance();
-        for (int i = this.getInitialFiguresArray().size(); i< numberOfInitialFigures; i++){
+        for (int i = this.getInitialFiguresArray().size(); i< NUMBER_OF_INITIAL_FIGURES; i++){
             this.getInitialFiguresArray().add(factory.getFigureInstance(FigureTypesEnum.getRandomEnumObject()));
         }
     }
 
     public List<FigureInterface> getFiguresArray(int number) {
+        List<FigureInterface> figuresArray = this.getFiguresArray();
 
-        if(number>= numberOfInitialFigures) {
-            while (number >= numberOfInitialFigures) {
+        if(number>= NUMBER_OF_INITIAL_FIGURES) {
+            FigureInterface figure;
+            while (number >= NUMBER_OF_INITIAL_FIGURES) {
                 for (int i = 0; i < this.getInitialFiguresArray().size(); i++) {
-                    this.getFiguresArray().add(this.getInitialFiguresArray().remove(i));
+                    figure = this.getInitialFiguresArray().remove(i);
+                    figuresArray.add(figure);
                 }
                 this.makeInitialFiguresArray();
-                number -= numberOfInitialFigures;
+                number -= NUMBER_OF_INITIAL_FIGURES;
             }
         }
-        if (number < numberOfInitialFigures) {
+        if (number < NUMBER_OF_INITIAL_FIGURES) {
+            FigureInterface figure;
             for (int i = 0; i < number; i++) {
-                this.getFiguresArray().add(this.getInitialFiguresArray().remove(i));
+                figure = this.getInitialFiguresArray().remove(i);
+                figuresArray.add(figure);
             }
         }
-        return this.getFiguresArray();
+        return figuresArray;
     }
 
     public void printFiguresArray(){
