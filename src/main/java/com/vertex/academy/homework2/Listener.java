@@ -1,13 +1,15 @@
 package com.vertex.academy.homework2;
 
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Created by Tanya on 05.02.2017.
  */
 public class Listener{
 
-    public static ArrayList<HumanInterface> listeners = new ArrayList<>();
+    private static ArrayList<Human> listeners = new ArrayList<>();
 
     public static void main(String[] args){
         Listener listener = new Listener();
@@ -15,27 +17,28 @@ public class Listener{
         System.out.println("============ no sorted ==============");
         System.out.println(listeners);
         System.out.println("========== sortedByGender ============");
-        Collections.sort(listeners, new sortByGender());
+        Collections.sort(listeners, new Human());
         System.out.println(listeners);
         System.out.println("========== sortedByRespect ============");
-        listeners = listener.sortByRespect();
+        listener.sortByRespect();
         System.out.println(listeners);
 
     }
 
-    public ArrayList<HumanInterface> createHumanQueue(int countOfPeople){
+    private ArrayList<Human> createHumanQueue(int countOfPeople){
         HumanEnum randomHuman;
         for (int i=0; i<countOfPeople; i++){
             randomHuman = HumanEnum.getRandomHuman();
             switch (randomHuman){
                 case MAN:  listeners.add(new Man());
                 case Lady: listeners.add(new Lady());
+                default: listeners.add(new Lady());
             }
         }
         return listeners;
     }
 
-    public ArrayList<HumanInterface> sortByRespect() {
+    private ArrayList<Human> sortByRespect() {
         if (listeners.size() > 1) {
             ArrayList<Lady> ladies = new ArrayList<>();
             ArrayList<Man> men = new ArrayList<>();
@@ -49,19 +52,15 @@ public class Listener{
             }
             listeners.removeAll(listeners);
 
-            for (int i = 0; i < ladies.size() - 1; i++) {
-                ladies.get(i).compareTo(ladies.get(i + 1));
-                listeners.add(ladies.get(i));
-            }
-            for (int i = 0; i < men.size() - 1; i++) {
-                men.get(i).compareTo(men.get(i + 1));
-                listeners.add(men.get(i));
-            }
+            Collections.sort(ladies);
+            Collections.sort(men);
+            listeners.addAll(ladies);
+            listeners.addAll(men);
 
-//            listeners.addAll(ladies);
-//            listeners.addAll(men);
         }
         return listeners;
+
+
     }
 
 }

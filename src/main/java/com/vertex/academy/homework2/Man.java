@@ -4,47 +4,36 @@ package com.vertex.academy.homework2;
 /**
  * Created by Tanya on 06.02.2017.
  */
-public class Man implements HumanInterface, Comparable<Man>{
+class Man extends Human{
     private int lengthOfMustache;
     private int id;
-    public static int ID = 0;
+    private static int ID = 0;
     private static final int maxLengthOfMustache = 10;
 
-    public Man(){
+    Man(){
         this.setId(++ID);
         this.setLengthOfMustache( (int) (Math.random()* maxLengthOfMustache));
     }
 
-    public void setId(int id) {
+    private void setId(int id) {
         this.id = id;
     }
-    public void setLengthOfMustache(int lengthOfMustache) {
+    private void setLengthOfMustache(int lengthOfMustache) {
         this.lengthOfMustache = lengthOfMustache;
     }
 
     public int getId() {
         return id;
     }
-    public int getLengthOfMustache() {
+    public int getRespect() {
         return lengthOfMustache;
     }
 
     @Override
     public String toString(){
-        return this.getClass().getSimpleName()+" "+this.getId()+": length of mustache: "+this.getLengthOfMustache()+"; ";
+        return this.getClass().getSimpleName()+" "+this.getId()+": length of mustache: "+this.getRespect()+"; ";
     }
 
-    @Override
-    public int compareTo(Man o) {
-        if (this.getLengthOfMustache()>o.getLengthOfMustache()){
-            return 1;
-        } else if (this.getLengthOfMustache()==o.getLengthOfMustache()){
-            return 0;
-        } else if (this.getLengthOfMustache()<o.getLengthOfMustache()){
-            return -1;
-        }
-        return 0;
-    }
 
     @Override
     public void buyTicket() {
