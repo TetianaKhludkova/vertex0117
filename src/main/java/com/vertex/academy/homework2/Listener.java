@@ -12,7 +12,7 @@ public class Listener {
     private PriorityQueue<People> sortedQueue;
 
 
-    public PriorityQueue<People> listen() {
+    public void listen() {
         sortedQueue = new PriorityQueue<>(getComparator());
         customerQueue = new PriorityQueue<>(getComparator());
         for (int i = 0; i < Math.random() * 10; i++) {
@@ -24,7 +24,7 @@ public class Listener {
 
             System.out.println(customerQueue.poll());
         }
-        return sortedQueue;
+
     }
 
     private static Comparator<People> getComparator() {
