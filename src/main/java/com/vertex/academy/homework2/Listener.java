@@ -9,8 +9,8 @@ import java.util.*;
 public class Listener {
     public static void main(String[] args) {
 
-        Comparator<People> comparator = (o1, o2) -> {
-            if (o1.getClass().equals(o2.getClass())) {
+         Comparator<People> comparator = (o1, o2) -> {
+            if ((o1 instanceof Man) && (o2 instanceof Man) || (o1 instanceof Woman) && (o2 instanceof Woman)) {
                 if (o1.getProperties() < o2.getProperties()) {
                     return 1;
                 } else if (o1.getProperties() > o2.getProperties()) {
@@ -20,14 +20,15 @@ public class Listener {
                 return 1;
             } else return -1;
         };
+
         PriorityQueue<People> customerPriorityQueue = new PriorityQueue<>(comparator);
         for (int i = 0; i < 5; i++) {
             customerPriorityQueue.add(new Man());
             customerPriorityQueue.add(new Woman());
         }
-        while (!customerPriorityQueue.isEmpty()) {
-            System.out.println(customerPriorityQueue.poll());
-        }
+
+     while (!customerPriorityQueue.isEmpty())
+         System.out.println(customerPriorityQueue.poll());
 
     }
 

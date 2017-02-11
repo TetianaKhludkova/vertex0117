@@ -5,7 +5,7 @@ import java.util.Random;
 /**
  * Created by a on 10.02.17.
  */
-public class Woman implements People, Comparable<People> {
+public class Woman implements People {
     private String[] names = {"Jessika", "Anastasia", "Miranda", "Anetta", "Julie"};
     private Random r = new Random();
     private final int quantity;
@@ -51,7 +51,7 @@ public class Woman implements People, Comparable<People> {
         return quantity;
     }
 
-    @Override
+  /*  @Override
     public int compareTo(People o) {
         if (o instanceof Woman) {
             if (this.getProperties() < (o).getProperties()) {
@@ -61,5 +61,5 @@ public class Woman implements People, Comparable<People> {
             } else return 0;
         } else return -1;
 
-    }
+    }*/
 }
