@@ -25,10 +25,8 @@ public class Listener {
             customerPriorityQueue.add(new Man());
             customerPriorityQueue.add(new Woman());
         }
-
-        int count = 0;
         while (!customerPriorityQueue.isEmpty()) {
-            System.out.println(++count + ": " + customerPriorityQueue.poll());
+            System.out.println(customerPriorityQueue.poll());
         }
 
     }
