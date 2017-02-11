@@ -7,15 +7,24 @@ package com.vertex.academy.homework2;
 import java.util.*;
 
 public class Listener {
-    public static void main(String[] args) {
 
-        PriorityQueue<People> customerPriorityQueue = new PriorityQueue<>(getComparator());
-        for (int i = 0; i < Math.random() * 100; i++) {
-            customerPriorityQueue.add(new Man());
-            customerPriorityQueue.add(new Woman());
+    private PriorityQueue<People> customerQueue;
+    private PriorityQueue<People> sortedQueue;
+
+
+    public PriorityQueue<People> listen() {
+        sortedQueue = new PriorityQueue<>(getComparator());
+        customerQueue = new PriorityQueue<>(getComparator());
+        for (int i = 0; i < Math.random() * 10; i++) {
+            customerQueue.add(new Man());
+            customerQueue.add(new Woman());
         }
-        while (!customerPriorityQueue.isEmpty())
-            System.out.println(customerPriorityQueue.poll());
+        sortedQueue.addAll(customerQueue); // this is made for passing our queue to another queue, since the first will have been polled out to console
+        while (!customerQueue.isEmpty()) {
+
+            System.out.println(customerQueue.poll());
+        }
+        return sortedQueue;
     }
 
     private static Comparator<People> getComparator() {
