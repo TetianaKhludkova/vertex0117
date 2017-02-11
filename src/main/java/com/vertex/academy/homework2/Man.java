@@ -49,15 +49,4 @@ public class Man implements People {
     public int hashCode() {
         return length;
     }
-
-    /*@Override
-    public int compareTo(People o) {
-        if (o instanceof Man) {
-            if (o.getProperties() < this.getProperties()) {
-                return -1;
-            } else if (o.getProperties() == this.getProperties()) {
-                return 0;
-            } else return 1;
-        } else return 1;
-    }*/
 }

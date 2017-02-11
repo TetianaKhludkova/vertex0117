@@ -50,16 +50,4 @@ public class Woman implements People {
     public int hashCode() {
         return quantity;
     }
-
-  /*  @Override
-    public int compareTo(People o) {
-        if (o instanceof Woman) {
-            if (this.getProperties() < (o).getProperties()) {
-                return 1;
-            } else if (this.getProperties() > (o).getProperties()) {
-                return -1;
-            } else return 0;
-        } else return -1;
-
-    }*/
 }
