@@ -5,6 +5,8 @@ package com.vertex.academy.homework2;
  */
 public class MainClass {
     public static void main(String[] args) {
-      new Listener().listen();
+        Listener listener = new Listener();
+        listener.listen();  // task 1
+
     }
 }
