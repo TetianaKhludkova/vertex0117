@@ -8,10 +8,14 @@ import java.util.Random;
  * Created by andrew_yashin on 2/5/17.
  */
 public class Woman implements Human, Comparable<Human> {
+    private static int countWoman = 0;
+    private final int idWoman = ++countWoman;
     private final int count;
     private final String name;
     private Random random = new Random();
     private String[] names = { "Kate", "Nicky", "Veron", "Sasha"};
+    private String[] surnames = {"Black", "White", "Kashpirovskiy", "Yashin", "Rudyka"};
+
 
     public Woman(int count, String name) {
         this.count = count;
@@ -20,7 +24,8 @@ public class Woman implements Human, Comparable<Human> {
 
     public Woman(){
         this.count = random.nextInt(10);
-        this.name = names[random.nextInt(names.length)];
+        this.name = names[random.nextInt(names.length)] + " "
+                + surnames[random.nextInt(surnames.length)];
     }
 
     public String getName() {
@@ -31,6 +36,7 @@ public class Woman implements Human, Comparable<Human> {
         return count;
     }
 
+    public int getId() { return idWoman; }
     @Override
     public int compareTo(Human o) {
         if(o instanceof Woman){
@@ -57,11 +63,16 @@ public class Woman implements Human, Comparable<Human> {
 
         Woman woman = (Woman) o;
 
-        return count == woman.count;
+        if (idWoman != woman.idWoman) return false;
+        if (count != woman.count) return false;
+        return name != null ? name.equals(woman.name) : woman.name == null;
     }
 
     @Override
     public int hashCode() {
-        return count;
+        int result = idWoman;
+        result = 31 * result + count;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        return result;
     }
 }
