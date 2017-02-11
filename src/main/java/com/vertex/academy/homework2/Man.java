@@ -9,11 +9,11 @@ public class Man implements People {
 
     private String[] names = {"Tom", "John", "Peter", "Mark", "Arnold"};
     private Random r = new Random();
-    private final int length;
+    private final int mustacheLength;
     private final String name;
 
     public Man() {
-        this.length = r.nextInt(100);
+        this.mustacheLength = r.nextInt(100);
         this.name = names[r.nextInt(names.length)];
     }
 
@@ -24,13 +24,13 @@ public class Man implements People {
 
     @Override
     public int getProperties() {
-        return length;
+        return mustacheLength;
     }
 
     @Override
     public String toString() {
         return "Man{" +
-                "length=" + getProperties() +
+                "mustacheLength=" + getProperties() +
                 ", name='" + getName() + '\'' +
                 '}';
     }
@@ -42,11 +42,11 @@ public class Man implements People {
 
         Man man = (Man) o;
 
-        return length == man.length;
+        return mustacheLength == man.mustacheLength;
     }
 
     @Override
     public int hashCode() {
-        return length;
+        return mustacheLength;
     }
 }

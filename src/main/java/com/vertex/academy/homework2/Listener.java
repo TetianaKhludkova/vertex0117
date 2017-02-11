@@ -19,7 +19,7 @@ public class Listener {
     }
 
     private static Comparator<People> getComparator() {
-        Comparator<People> comparator = (o1, o2) -> {
+        return (o1, o2) -> {
             if ((o1 instanceof Man) && (o2 instanceof Man) || (o1 instanceof Woman) && (o2 instanceof Woman)) {
                 if (o1.getProperties() < o2.getProperties()) {
                     return 1;
@@ -30,7 +30,6 @@ public class Listener {
                 return 1;
             } else return -1;
         };
-        return comparator;
     }
 
 }

@@ -8,12 +8,12 @@ import java.util.Random;
 public class Woman implements People {
     private String[] names = {"Jessika", "Anastasia", "Miranda", "Anetta", "Julie"};
     private Random r = new Random();
-    private final int quantity;
+    private final int broachQuantity;
     private final String name;
 
 
     public Woman() {
-        this.quantity = r.nextInt(100);
+        this.broachQuantity = r.nextInt(100);
         this.name = names[r.nextInt(names.length)];
     }
 
@@ -25,7 +25,7 @@ public class Woman implements People {
 
     @Override
     public int getProperties() {
-        return quantity;
+        return broachQuantity;
     }
 
     @Override
@@ -35,19 +35,19 @@ public class Woman implements People {
 
         Woman woman = (Woman) o;
 
-        return quantity == woman.quantity;
+        return broachQuantity == woman.broachQuantity;
     }
 
     @Override
     public String toString() {
         return "Woman{" +
-                "quantity=" + getProperties() +
+                "broachQuantity=" + getProperties() +
                 ", name='" + getName() + '\'' +
                 '}';
     }
 
     @Override
     public int hashCode() {
-        return quantity;
+        return broachQuantity;
     }
 }
