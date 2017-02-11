@@ -22,6 +22,7 @@ public class FiguresFactory {
         return figuresFactory;
     }
 
+    // TODO: 05.02.17 don't you like to set us some constants to be sure that you use right number in other part of code? 
     public Figure getFigure(int type){
         switch (type){
             case 1: return new Oval.OvalBuilder()
@@ -43,8 +44,8 @@ public class FiguresFactory {
                     ThreadLocalRandom.current().nextDouble(0, 100));
 
             default: return new Circle(ThreadLocalRandom.current().nextDouble(0, 100),
-                                       ThreadLocalRandom.current().nextDouble(0, 100),
-                                       ThreadLocalRandom.current().nextDouble(0, 100));
+                    ThreadLocalRandom.current().nextDouble(0, 100),
+                    ThreadLocalRandom.current().nextDouble(0, 100));
 
         }
     }
