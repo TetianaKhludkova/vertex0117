@@ -9,10 +9,16 @@ import java.util.PriorityQueue;
  * Created by a on 17.02.17.
  */
 public class CashBox {
+
+   private Map<Ticket,People> map;
     Map<Ticket, People> getTicket(PriorityQueue<People> people){
-        Map<Ticket,People> map = new LinkedHashMap<>();
+           map = new LinkedHashMap<>();
 
          people.forEach( (People p)-> map.put(new Ticket(),p));
+        return map;
+    }
+
+    public Map<Ticket, People> getMap() {
         return map;
     }
 }
