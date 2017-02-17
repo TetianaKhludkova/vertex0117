@@ -1,4 +1,4 @@
-package com.vertex.academy.myhomework;
+package com.vertex.academy.homeworkoop.forfigures;
 
 /**
  * Created by Valery on 1/27/2017.

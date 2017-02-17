@@ -1,7 +1,9 @@
 
 //todo: read java name convention please. Because packages shouldn't contain capital letters.
 //done
-package com.vertex.academy.myhomework;
+package com.vertex.academy.homeworkoop.forartist;
+
+import com.vertex.academy.homeworkoop.forfigures.Figure;
 
 /**
  * Created by Aile (on Valery) on 1/29/2017.

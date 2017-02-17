@@ -1,4 +1,8 @@
-package com.vertex.academy.myhomework;
+package com.vertex.academy.homeworkoop.forartist;
+
+import com.vertex.academy.homeworkoop.FigureFactory;
+import com.vertex.academy.homeworkoop.Point;
+import com.vertex.academy.homeworkoop.forfigures.Figure;
 
 import java.util.*;
 

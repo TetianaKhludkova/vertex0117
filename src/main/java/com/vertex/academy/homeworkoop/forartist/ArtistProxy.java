@@ -1,4 +1,7 @@
-package com.vertex.academy.myhomework;
+package com.vertex.academy.homeworkoop.forartist;
+
+import com.vertex.academy.homeworkoop.forartist.Artist;
+import com.vertex.academy.homeworkoop.forartist.ArtistInterface;
 
 /**
  * Created by Valery on 1/27/2017.

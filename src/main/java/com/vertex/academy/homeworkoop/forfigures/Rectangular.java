@@ -1,4 +1,6 @@
-package com.vertex.academy.myhomework;
+package com.vertex.academy.homeworkoop.forfigures;
+
+import com.vertex.academy.homeworkoop.Point;
 
 /**
  * Created by Valery on 1/27/2017.
