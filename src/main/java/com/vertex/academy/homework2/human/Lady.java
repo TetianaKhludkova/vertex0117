@@ -1,9 +1,9 @@
-package com.vertex.academy.homework2;
+package com.vertex.academy.homework2.human;
 
 /**
  * Created by Tanya on 06.02.2017.
  */
-class Lady extends Human{
+public class Lady extends Human {
     private int amountOfBrooch;
     private int id;
     private static int ID = 0;
@@ -34,11 +34,21 @@ class Lady extends Human{
         return this.getClass().getSimpleName()+" "+this.getId()+": amount of brooch: "+this.getRespect()+"; ";
     }
 
-
     @Override
-    public void buyTicket() {
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Lady lady = (Lady) o;
+
+        return amountOfBrooch == lady.amountOfBrooch && id == lady.id;
 
     }
 
-
+    @Override
+    public int hashCode() {
+        int result = amountOfBrooch;
+        result = 31 * result + id;
+        return result;
+    }
 }

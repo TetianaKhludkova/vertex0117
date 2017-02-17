@@ -15,17 +15,17 @@ public class Square implements FigureInterface {
     private int height;
     private Point point = new Point(((int)(Math.random()* Artist.getCanvasWidth())+1), (int)(Math.random()*Artist.getCanvasHeight())+1);
 
-    Square setCenter(Point point) {
+    private Square setCenter(Point point) {
         this.point = point;
         return this;
     }
 
-    Square setWidth(int width){
+    private Square setWidth(int width){
         this.width = width;
         return this;
     }
 
-    Square setHeight(int height){
+    private Square setHeight(int height){
         this.height = height;
         return this;
     }
@@ -38,7 +38,7 @@ public class Square implements FigureInterface {
         return height;
     }
 
-    protected Square() {
+    Square() {
     }
 
     public static class Builder{
@@ -73,13 +73,9 @@ public class Square implements FigureInterface {
         }
     }
 
-    public void draw() {
-        System.out.println(this.toString());
-    }
-
-    public boolean isPlacedInCanvas(){
+    boolean isPlacedInCanvas(){
         boolean isPlacedInCanvas=false;
-        while (isPlacedInCanvas==false){
+        while (!isPlacedInCanvas){
             if ((this.point.getX()>0)&&(this.point.getX()+this.getWidth()<Artist.getCanvasWidth())&&((this.point.getY()>0)&&(this.point.getY()+this.getHeight()<Artist.getCanvasHeight())) ) {
                 isPlacedInCanvas=true;
             }else{

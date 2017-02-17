@@ -15,19 +15,19 @@ public class Oval implements FigureInterface {
     private int height;
     private Point point = new Point(((int)(Math.random()* Artist.getCanvasWidth())+1), (int)(Math.random()*Artist.getCanvasHeight())+1);
 
-    protected Oval(){}
+    Oval(){}
 
-    FigureInterface setCenter(Point point) {
+    private FigureInterface setCenter(Point point) {
         this.point = point;
         return this;
     }
 
-    FigureInterface setWidth(int width){
+    private FigureInterface setWidth(int width){
         this.width = width;
         return this;
     }
 
-    FigureInterface setHeight(int height){
+    private FigureInterface setHeight(int height){
         this.height = height;
         return this;
     }
@@ -72,9 +72,9 @@ public class Oval implements FigureInterface {
         }
     }
 
-    public boolean isPlacedInCanvas(){
+    boolean isPlacedInCanvas(){
         boolean isPlacedInCanvas=false;
-        while (isPlacedInCanvas==false){
+        while (!isPlacedInCanvas){
             if ((this.point.getX()-this.getWidth()>0)&&(this.point.getX()+this.getWidth()<Artist.getCanvasWidth())&&((this.point.getY()-this.getHeight()>0)&&(this.point.getY()+this.getHeight()<Artist.getCanvasHeight())) ) {
                 isPlacedInCanvas=true;
             }else{
@@ -96,9 +96,6 @@ public class Oval implements FigureInterface {
         return (this.getClass().getSimpleName()+" : center( "+ this.point.getX()+", "+ this.point.getY()+"), width: " +this.getWidth()+", height: "+ this.getHeight());
     }
 
-    @Override
-    public void draw() {
-        System.out.println(this.toString());
-    }
+
 
 }
