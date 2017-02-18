@@ -11,11 +11,11 @@ import java.util.PriorityQueue;
  */
 public class CashBox {
 
-   private Map<Ticket,People> map;
-    Map<Ticket, People> getTicket(PriorityQueue<People> people){
-           map = new LinkedHashMap<>();
+    private Map<Ticket, People> map;
 
-         people.forEach( (People p)-> map.put(new Ticket(),p));
+    Map<Ticket, People> getTicket(PriorityQueue<People> people) {
+        map = new LinkedHashMap<>();
+        people.forEach((People p) -> map.put(new Ticket(), p));
         return map;
     }
 }

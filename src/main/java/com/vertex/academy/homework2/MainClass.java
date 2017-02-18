@@ -2,7 +2,12 @@ package com.vertex.academy.homework2;
 
 import com.vertex.academy.homework2.people.People;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Map;
+import java.util.Random;
 
 /**
  * Created by vertex0007 on 11.02.2017.
@@ -10,7 +15,7 @@ import java.util.Map;
 public class MainClass {
     public static void main(String[] args) {
 
-        Listener listener = new Listener();    // task 1
+        Listener listener = new Listener();      // task 1
         System.out.println("PRINTING THE LISTENERS QUEUE...\n");
         listener.listen();
 
@@ -23,7 +28,6 @@ public class MainClass {
         Contest contest = new Contest();        // task 2.1
         System.out.println("\nOUR WINNERS ARE....\n");
         System.out.println(contest.getWinners(listenerMap));
-
 
     }
 }

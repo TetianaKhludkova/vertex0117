@@ -10,6 +10,8 @@ import com.vertex.academy.homework2.people.Woman;
 
 import java.util.*;
 
+import static java.lang.Math.*;
+
 public class Listener {
 
 
@@ -19,11 +21,19 @@ public class Listener {
     public void listen() {
         sortedQueue = new PriorityQueue<>(getComparator());
         PriorityQueue<People> customerQueue = new PriorityQueue<>(getComparator());
-        for (int i = 0; i < Math.random() * 50; i++) {
-            customerQueue.add(new Man());
-            customerQueue.add(new Woman());
+        Random r = new Random();
+        for (int i = 0; i < random() * 50; i++) {
+
+            switch (r.nextInt(2)) {
+                case 0:
+                    customerQueue.add(new Woman());
+                case 1:
+                    customerQueue.add(new Man());
+            }
+
+
         }
-        sortedQueue.addAll(customerQueue); // this is made for passing our queue to another queue, since the first will have been polled out to console
+        sortedQueue.addAll(customerQueue); // this is made for passing our queue to another queue, since the first one will have been polled out to console
         while (!customerQueue.isEmpty()) {
 
             System.out.println(customerQueue.poll());
