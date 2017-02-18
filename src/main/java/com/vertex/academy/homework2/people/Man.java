@@ -1,4 +1,4 @@
-package com.vertex.academy.homework2;
+package com.vertex.academy.homework2.people;
 
 import java.util.Random;
 

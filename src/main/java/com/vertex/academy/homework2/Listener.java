@@ -4,6 +4,10 @@ package com.vertex.academy.homework2;
  * Created by a on 08.02.17.
  */
 
+import com.vertex.academy.homework2.people.Man;
+import com.vertex.academy.homework2.people.People;
+import com.vertex.academy.homework2.people.Woman;
+
 import java.util.*;
 
 public class Listener {
@@ -28,6 +32,7 @@ public class Listener {
     }
 
     public PriorityQueue<People> getSortedQueue() {
+
         return sortedQueue;
     }
 

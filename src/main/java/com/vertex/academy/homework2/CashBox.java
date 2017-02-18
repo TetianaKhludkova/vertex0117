@@ -1,6 +1,7 @@
 package com.vertex.academy.homework2;
 
-import java.util.ArrayList;
+import com.vertex.academy.homework2.people.People;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
@@ -15,10 +16,6 @@ public class CashBox {
            map = new LinkedHashMap<>();
 
          people.forEach( (People p)-> map.put(new Ticket(),p));
-        return map;
-    }
-
-    public Map<Ticket, People> getMap() {
         return map;
     }
 }
