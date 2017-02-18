@@ -1,5 +1,6 @@
 package com.vertex.academy.homework2;
 
+import com.vertex.academy.homework2.people.Man;
 import com.vertex.academy.homework2.people.People;
 
 import java.util.*;
@@ -15,7 +16,7 @@ public class Contest {
         try {
             philharmonicMap.values().stream()
                     .sorted(Listener.getComparator())
-                    .collect(Collectors.partitioningBy(people -> people.getClass().getName().equals("com.vertex.academy.homework2.people.Man")))
+                    .collect(Collectors.partitioningBy(Man.class::isInstance))
                     .values().forEach(list -> res.add(list.get(list.size() - 1)));
         } catch (ArrayIndexOutOfBoundsException e) {
             System.err.println("There is only one gender, who presents in the queue, so no prise for another.");
