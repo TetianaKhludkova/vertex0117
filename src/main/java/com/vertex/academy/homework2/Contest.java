@@ -12,15 +12,14 @@ import java.util.stream.Collectors;
 public class Contest {
 
     public Collection<People> getWinners(Map<Ticket, People> philharmonicMap) {
-        final Set<People> res = new HashSet<>();
         try {
-            philharmonicMap.values().stream()
+          return  philharmonicMap.values().stream()
                     .sorted(Listener.getComparator())
                     .collect(Collectors.partitioningBy(Man.class::isInstance))
-                    .values().forEach(list -> res.add(list.get(list.size() - 1)));
+                    .values().stream().map(list -> Collections.singletonList(list.get(list.size()-1))).collect(ArrayList::new, ArrayList::addAll, ArrayList::addAll);
         } catch (ArrayIndexOutOfBoundsException e) {
             System.err.println("There is only one gender, who presents in the queue, so no prise for another.");
+            return Collections.EMPTY_LIST;
         }
-        return res;
     }
 }
