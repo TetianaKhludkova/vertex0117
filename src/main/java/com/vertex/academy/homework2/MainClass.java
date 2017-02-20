@@ -2,15 +2,11 @@ package com.vertex.academy.homework2;
 
 import com.vertex.academy.homework2.people.People;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.Map;
-import java.util.Random;
+import java.util.Set;
 
 /**
- * Created by vertex0007 on 11.02.2017.
+ * 11.02.2017.
  */
 public class MainClass {
     public static void main(String[] args) {
@@ -28,6 +24,15 @@ public class MainClass {
         Contest contest = new Contest();        // task 2.1
         System.out.println("\nOUR WINNERS ARE....\n");
         System.out.println(contest.getWinners(listenerMap));
+
+        MoreThanOne moreThanOne = new MoreThanOne();   //task 3
+        System.out.println("\nTHOSE, WHO HAS GOT MORE, THAN ONE SEAT, ARE...\n");
+        final Set<People> moreThanOneListener = moreThanOne.getMoreThanOneListener(listenerMap);
+        if(!moreThanOneListener.isEmpty())
+        System.out.println(moreThanOneListener);
+        else System.out.println("Unfortunately there is no people, who have bought more, than one.");
+
+                                        //task 4
 
     }
 }

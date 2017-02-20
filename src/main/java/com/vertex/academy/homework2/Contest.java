@@ -18,7 +18,7 @@ public class Contest {
                     .collect(Collectors.partitioningBy(Man.class::isInstance))
                     .values().stream().map(list -> Collections.singletonList(list.get(list.size()-1))).collect(ArrayList::new, ArrayList::addAll, ArrayList::addAll);
         } catch (ArrayIndexOutOfBoundsException e) {
-            System.err.println("There is only one gender, who presents in the queue, so no prise for another.");
+            System.out.println("There is only one gender, who presents in the queue, so no prise for another.");
             return Collections.EMPTY_LIST;
         }
     }
