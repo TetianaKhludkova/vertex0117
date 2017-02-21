@@ -22,7 +22,7 @@ public class Listener {
         sortedQueue = new PriorityQueue<>(getComparator());
         PriorityQueue<People> customerQueue = new PriorityQueue<>(getComparator());
         Random r = new Random();
-        for (int i = 0; i < random() * 100; i++) {
+        for (int i = 0; i < random() * 200; i++) {
 
             switch (r.nextInt(2)) {
                 case 0:

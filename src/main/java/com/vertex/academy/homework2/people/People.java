@@ -6,4 +6,5 @@ package com.vertex.academy.homework2.people;
 public interface People {
     String getName();
     int getProperties();
+
 }
