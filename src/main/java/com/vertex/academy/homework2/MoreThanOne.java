@@ -23,7 +23,7 @@ public class MoreThanOne {
             }
         }
 
-        // ADDING CHEATERS TO SET (our cheaters use reflection to falsify the private ticket fields)
+        //  ADDING CHEATERS TO SET (our cheaters use reflection to falsify the private ticket fields)
         Random r = new Random();
         People rogue = new RogueDecorator(peopleList.get(r.nextInt(peopleList.size())));
         peopleSet.add(rogue);
