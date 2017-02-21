@@ -3,7 +3,7 @@ package com.vertex.academy.homework1;
 /**
  * Created by Tanya on 28.01.2017.
  */
-public enum FigureTypesEnum {
+enum FigureTypesEnum {
     Oval, Circle, Rectangular, Square;
 
     public static FigureTypesEnum getRandomEnumObject(){
@@ -17,3 +17,4 @@ public enum FigureTypesEnum {
         return null;
     }
 }
+

@@ -13,6 +13,7 @@ public class Man extends Human {
     Man(){
         this.setId(++ID);
         this.setLengthOfMustache( (int) (Math.random()* maxLengthOfMustache));
+        this.setAmountOfTickets((int)(Math.random()* MAX_AMOUNT_OF_Tickets));
     }
 
     private void setId(int id) {
@@ -33,24 +34,24 @@ public class Man extends Human {
     public String toString(){
 //        NumberFormat nf = NumberFormat.getCurrencyInstance();
 //        String formattedLengthOfMustache = nf.format(this.getRespect());
-        return this.getClass().getSimpleName()+" "+this.getId()+": length of mustache: "+this.getRespect()+"; ";
+        return this.getClass().getSimpleName()+" "+this.getId()+": length of mustache: "+this.getRespect()+" ";
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Man man = (Man) o;
-
-        return lengthOfMustache == man.lengthOfMustache && id == man.id;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = lengthOfMustache;
-        result = 31 * result + id;
-        return result;
-    }
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//
+//        Man man = (Man) o;
+//
+//        return lengthOfMustache == man.lengthOfMustache && id == man.id;
+//
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        int result = lengthOfMustache;
+//        result = 31 * result + id;
+//        return result;
+//    }
 }

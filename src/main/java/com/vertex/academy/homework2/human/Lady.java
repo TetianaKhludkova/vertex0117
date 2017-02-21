@@ -9,9 +9,11 @@ public class Lady extends Human {
     private static int ID = 0;
     private static final int MAX_AMOUNT_OF_BROOCH = 10;
 
+
     Lady(){
         this.setAmountOfBrooch((int)(Math.random()* MAX_AMOUNT_OF_BROOCH));
         this.setId(++ID);
+        this.setAmountOfTickets((int)(Math.random()* MAX_AMOUNT_OF_Tickets));
     }
 
     private void setId(int id) {
@@ -31,24 +33,26 @@ public class Lady extends Human {
 
     @Override
     public String toString(){
-        return this.getClass().getSimpleName()+" "+this.getId()+": amount of brooch: "+this.getRespect()+"; ";
+        return this.getClass().getSimpleName()+" "+this.getId()+": amount of brooch: "+this.getRespect()+"  ";
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//
+//        Lady lady = (Lady) o;
+//
+//        return amountOfBrooch == lady.amountOfBrooch && id == lady.id;
+//
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        int result = amountOfBrooch;
+//        result = 31 * result + id;
+//        return result;
+//    }
 
-        Lady lady = (Lady) o;
 
-        return amountOfBrooch == lady.amountOfBrooch && id == lady.id;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = amountOfBrooch;
-        result = 31 * result + id;
-        return result;
-    }
 }

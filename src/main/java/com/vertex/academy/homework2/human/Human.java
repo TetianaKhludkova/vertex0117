@@ -11,6 +11,22 @@ import static com.vertex.academy.homework2.Main.listeners;
  */
 public class Human implements Comparator<Human>, Comparable<Human> {
 
+    private int id;
+    private int amountOfTickets;
+    static final int MAX_AMOUNT_OF_Tickets = 5;
+
+    public int getId() {
+        return id;
+    }
+
+    public int getAmountOfTickets() {
+        return amountOfTickets;
+    }
+
+    public void setAmountOfTickets(int amountOfTickets) {
+        this.amountOfTickets = amountOfTickets;
+    }
+
     public int getRespect() {
         return 0;
     }

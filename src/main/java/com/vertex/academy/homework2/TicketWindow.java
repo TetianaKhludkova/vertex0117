@@ -9,13 +9,14 @@ import java.util.*;
  */
 class TicketWindow{
 
-
     LinkedHashMap<Ticket, Human> sellTicket(ArrayList<Human> listeners){
         LinkedHashMap<Ticket, Human> humanWithTicketsMap = new LinkedHashMap<>();
 
         for (Human listener: listeners){
-            Ticket ticket = new Ticket();
-            humanWithTicketsMap.put(ticket, listener);
+            for (int i = 0; i < listener.getAmountOfTickets(); i++) {
+                Ticket ticket = new Ticket();
+                humanWithTicketsMap.put(ticket, listener);
+            }
         }
 
         return humanWithTicketsMap;

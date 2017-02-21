@@ -63,8 +63,7 @@ class Ticket {
 
         Ticket ticket = (Ticket) o;
 
-        if (numberOfTicket != ticket.numberOfTicket) return false;
-        return numberOfPlace == ticket.numberOfPlace && numberOfRow == ticket.numberOfRow;
+        return numberOfTicket == ticket.numberOfTicket && numberOfPlace == ticket.numberOfPlace && numberOfRow == ticket.numberOfRow;
 
     }
 
@@ -81,7 +80,8 @@ class Ticket {
         return "Ticket " + numberOfTicket +
                 "{ numberOfPlace=" + numberOfPlace +
                 ", numberOfRow=" + numberOfRow +
-                '}';
+                ", isWin=" + isWin +
+                "} ";
     }
 
 
