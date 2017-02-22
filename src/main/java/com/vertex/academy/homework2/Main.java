@@ -1,9 +1,9 @@
 package com.vertex.academy.homework2;
 
 import com.vertex.academy.homework2.human.Human;
+import com.vertex.academy.homework2.human.HumanQueue;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 
 /**
@@ -16,33 +16,22 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Human human = new Human();
-        listeners = human.createHumanQueue(30);
-        System.out.println("============ no sorted ==============");
-        System.out.println(listeners);
-        System.out.println("========== sortedByGender ============");
+        HumanQueue humanQueue = new HumanQueue();
+        listeners = humanQueue.addHumanToQueue(30);
+        listeners = humanQueue.addHumanToQueue(3);
+
         Collections.sort(listeners, new Human());
-        System.out.println(listeners);
-        System.out.println("========== sortedByRespect ============");
-        human.sortByRespect();
-        System.out.println(listeners);
+        System.out.println("\n========== sortedByGender ============\n"+ listeners);
+
+        new Human().sortByRespect();
+        System.out.println("========== sortedByRespect ============\n"+ listeners);
 
         System.out.println("\nListeners bought tickets: ");
-        TicketWindow ticketWindow = new TicketWindow();
-        humanWithTicketsMap = ticketWindow.sellTicket(listeners);
+        humanWithTicketsMap = (new TicketWindow()).sellTicket(listeners);
         System.out.println(humanWithTicketsMap);
 
-        System.out.println("\nCompetition for the least number of respect is started!...\nWinners: ");
-        Competition.setWinTicketsByRespect(humanWithTicketsMap);
-        Set<Map.Entry<Ticket, Human>> entrySet = humanWithTicketsMap.entrySet();
-        entrySet.stream().filter(hum -> hum.getKey().getIsWin())
-                .forEach( hum -> System.out.println(hum.getValue()+ ":  "+hum.getKey()));
+        Competition.startCompetitionByTheLeastRespect(humanWithTicketsMap);
 
-        System.out.println("\nCompetition for the greatest number of tickets is started!...\nWinners: ");
-        List<Human> listOfWinnersByNumberOfTickets = humanWithTicketsMap.values().stream().distinct().collect(Collectors.toList());
-        listOfWinnersByNumberOfTickets =  Competition.startCompetitionByGreatestNumberOfTickets(listOfWinnersByNumberOfTickets);
-        for (Human hum: listOfWinnersByNumberOfTickets) {
-            System.out.println(hum.getClass().getSimpleName()+hum.getId()+": amount of tickets: "+hum.getAmountOfTickets());
-        }
+        Competition.startCompetitionByTheGreatestNumberOfTickets(humanWithTicketsMap);
     }
 }

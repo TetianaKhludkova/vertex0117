@@ -31,19 +31,7 @@ public class Human implements Comparator<Human>, Comparable<Human> {
         return 0;
     }
 
-    public ArrayList<Human> createHumanQueue(int countOfPeople){
-        HumanEnum randomHuman;
-        for (int i = 0; i<countOfPeople; i++){
-            randomHuman = HumanEnum.getRandomHuman();
-            assert randomHuman != null;
-            switch (randomHuman){
-                case MAN:  listeners.add(new Man());
-                case Lady: listeners.add(new Lady());
-                    //default: listeners.add(new Lady());
-            }
-        }
-        return listeners;
-    }
+
 
     public ArrayList<Human> sortByRespect() {
         if (listeners.size() > 1) {

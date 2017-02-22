@@ -36,23 +36,23 @@ public class Lady extends Human {
         return this.getClass().getSimpleName()+" "+this.getId()+": amount of brooch: "+this.getRespect()+"  ";
     }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//
-//        Lady lady = (Lady) o;
-//
-//        return amountOfBrooch == lady.amountOfBrooch && id == lady.id;
-//
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        int result = amountOfBrooch;
-//        result = 31 * result + id;
-//        return result;
-//    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Lady lady = (Lady) o;
+
+        return amountOfBrooch == lady.amountOfBrooch && id == lady.id;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = amountOfBrooch;
+        result = 31 * result + id;
+        return result;
+    }
 
 
 }

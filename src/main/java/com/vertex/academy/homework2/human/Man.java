@@ -37,21 +37,21 @@ public class Man extends Human {
         return this.getClass().getSimpleName()+" "+this.getId()+": length of mustache: "+this.getRespect()+" ";
     }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//
-//        Man man = (Man) o;
-//
-//        return lengthOfMustache == man.lengthOfMustache && id == man.id;
-//
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        int result = lengthOfMustache;
-//        result = 31 * result + id;
-//        return result;
-//    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Man man = (Man) o;
+
+        return lengthOfMustache == man.lengthOfMustache && id == man.id;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = lengthOfMustache;
+        result = 31 * result + id;
+        return result;
+    }
 }
