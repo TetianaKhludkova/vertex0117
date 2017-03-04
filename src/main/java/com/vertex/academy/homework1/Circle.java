@@ -15,7 +15,7 @@ public class Circle implements Figure{
 
     //todo: where is Builder for Circle?
     public Circle(double X, double Y, double radius) {
-        this.oval = new Oval.OvalBuilder()
+        this.oval = new Oval.Builder()
                 .setCenter(X,Y)
                 .setHeight(radius)
                 .setLength(radius)
@@ -36,4 +36,5 @@ public class Circle implements Figure{
                 + " - Height\\Length = " + oval.getHeight() + "\n"
                 + " - Center = " + oval.getPoint() + "\n\n";
     }
+
 }

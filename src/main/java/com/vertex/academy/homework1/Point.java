@@ -4,7 +4,7 @@ package com.vertex.academy.homework1;
  * Created by andrew_yashin on 1/22/17.
  */
 // TODO: 05.02.17 also should be final to avoid overriding
-public class Point {
+public final class Point {
     private final double x;
     private final double y;
 

@@ -10,7 +10,7 @@ import java.util.Random;
 public class Man implements Human, Comparable<Human> {
     private static int countMan = 0;
     private final int id = ++countMan;
-    private final int length;
+    private int length;
     private final String name;
     private Random random = new Random();
     private String[] names = { "John", "Steve", "Andrew", "Mike" };
@@ -22,7 +22,7 @@ public class Man implements Human, Comparable<Human> {
     }
 
     public Man(){
-        this.length = random.nextInt(50);
+        this.length = random.nextInt(10);
         this.name = names[random.nextInt(names.length)] + " "
                 + surnames[random.nextInt(surnames.length)];
     }
@@ -50,7 +50,7 @@ public class Man implements Human, Comparable<Human> {
 
     @Override
     public String toString() {
-        return " " + this.getClass().getSimpleName() + " --- " +
+        return "#" + String.format("%2d",id) + " " + this.getClass().getSimpleName() + " --- " +
                 "(" + this.getName()  +
                 " ," + this.getNumber() + ")";
     }

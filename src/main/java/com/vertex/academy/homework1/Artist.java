@@ -32,7 +32,7 @@ public class Artist {
             }
 
             System.out.println("#"+ (i+1) + ": " + figureList.pop());
-            // TODO: 05.02.17 why is it commented? 
+            // TODO: 05.02.17 why is it commented? - Because i used pop
 //            figureList.removeFirst();
         }
     }

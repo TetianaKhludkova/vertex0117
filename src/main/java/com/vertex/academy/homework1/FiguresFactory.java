@@ -25,7 +25,7 @@ public class FiguresFactory {
     // TODO: 05.02.17 don't you like to set us some constants to be sure that you use right number in other part of code? 
     public Figure getFigure(int type){
         switch (type){
-            case 1: return new Oval.OvalBuilder()
+            case 1: return new Oval.Builder()
                     .setCenter(ThreadLocalRandom.current().nextDouble(0, 100),
                             ThreadLocalRandom.current().nextDouble(0, 100))
                     .setHeight(ThreadLocalRandom.current().nextDouble(0, 100))

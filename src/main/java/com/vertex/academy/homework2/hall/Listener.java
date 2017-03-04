@@ -18,8 +18,10 @@ public class Listener {
     private PriorityQueue<Human> queuePeople;
     private PriorityQueue<Human> queuePeopleGet;
     private Comparator<Human> comparator;
+    private int countOfPeople;
 
-    public Listener(boolean isComparator){
+    public Listener(boolean isComparator,int countOfPeople){
+        this.countOfPeople = countOfPeople;
         System.out.println(" -- Queue #" + countListener + "\n");
 
         if(isComparator){
@@ -36,13 +38,13 @@ public class Listener {
             };
 
             queuePeople = new PriorityQueue<>(comparator);
-            fillData(queuePeople, 30);
+            fillData(queuePeople, countOfPeople);
             System.out.println(" ---- With Comparator : ---- \n\n");
             queuePeopleGet = new PriorityQueue<>(queuePeople);
             printData(queuePeople);
         } else {
             queuePeople = new PriorityQueue<>();
-            fillData(queuePeople, 30);
+            fillData(queuePeople, countOfPeople);
             System.out.println(" ---- With Comparable : ---- \n\n");
             queuePeopleGet = new PriorityQueue<>(queuePeople);
             printData(queuePeople);

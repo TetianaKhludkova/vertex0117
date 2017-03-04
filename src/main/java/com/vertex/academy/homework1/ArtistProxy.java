@@ -27,10 +27,4 @@ public class ArtistProxy {
         artist.paintFigures(total);
         System.out.println("**** Artist finished painting " + total + " figures ****");
     }
-
-    // TODO: 05.02.17 get rid of it. Test it locally, but don't push to repo. 
-    public static void main(String... args){
-        ArtistProxy artist = new ArtistProxy();
-        artist.paintFigures(250);
-    }
 }

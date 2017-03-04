@@ -13,13 +13,19 @@ import java.util.Map;
  */
 public class Test {
     public static void main(String... args){
-        Map<Ticket, Human> map = TicketWindow.getMap(new Listener(false).getQueue(), 10,50);
+        Map<Ticket, Human> map = TicketWindow
+                .getMap(new Listener(false,100).getQueue(),
+                        10,
+                        50);
 
 
-        for(Map.Entry<Ticket, Human> item: map.entrySet()){
-            System.out.println(item);
-        }
+        map.forEach((ticket, human) -> System.out.println(ticket + " = " + human));
+
 
         System.out.println(Winners.getWinners(map.values()));
+
+
     }
+
+
 }

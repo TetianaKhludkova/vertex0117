@@ -6,5 +6,5 @@ package com.vertex.academy.homework2.people;
 public interface Human {
     int getNumber();
     String getName();
-
+    int getId();
 }

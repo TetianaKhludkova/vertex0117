@@ -11,7 +11,7 @@ public class Oval implements Figure {
     private Oval(){}
 
     //todo: why do you use different access levels for getters?
-    double getLength(){
+    public double getLength(){
         return length;
     }
 
@@ -23,22 +23,22 @@ public class Oval implements Figure {
         return center;
     }
 
-    public static class OvalBuilder{
+    public static class Builder {
         private Oval figure;
 
-        public OvalBuilder() { figure = new Oval(); }
+        public Builder() { figure = new Oval(); }
 
-        public OvalBuilder setLength(double length){
+        public Builder setLength(double length){
             figure.length = length;
             return this;
         }
 
-        public OvalBuilder setHeight(double height){
+        public Builder setHeight(double height){
             figure.height = height;
             return this;
         }
 
-        public OvalBuilder setCenter(double X, double Y){
+        public Builder setCenter(double X, double Y){
             figure.center = new Point(X,Y);
             return this;
         }

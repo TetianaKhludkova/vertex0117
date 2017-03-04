@@ -9,7 +9,7 @@ import java.util.Random;
  */
 public class Woman implements Human, Comparable<Human> {
     private static int countWoman = 0;
-    private final int idWoman = ++countWoman;
+    private final int id = ++countWoman;
     private final int count;
     private final String name;
     private Random random = new Random();
@@ -36,7 +36,7 @@ public class Woman implements Human, Comparable<Human> {
         return count;
     }
 
-    public int getId() { return idWoman; }
+    public int getId() { return id; }
     @Override
     public int compareTo(Human o) {
         if(o instanceof Woman){
@@ -51,7 +51,7 @@ public class Woman implements Human, Comparable<Human> {
 
     @Override
     public String toString() {
-        return " " + this.getClass().getSimpleName() + " --- " +
+        return "#" + String.format("%2d",id) + " " + this.getClass().getSimpleName() + " --- " +
                 "(" + this.getName()  +
                 " ," + this.getNumber() + ")";
     }
@@ -63,14 +63,14 @@ public class Woman implements Human, Comparable<Human> {
 
         Woman woman = (Woman) o;
 
-        if (idWoman != woman.idWoman) return false;
+        if (id != woman.id) return false;
         if (count != woman.count) return false;
         return name != null ? name.equals(woman.name) : woman.name == null;
     }
 
     @Override
     public int hashCode() {
-        int result = idWoman;
+        int result = id;
         result = 31 * result + count;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         return result;
