@@ -1,11 +1,16 @@
 package com.vertex.academy.homework2;
 
+import lombok.Data;
+
 import java.util.Random;
 
 /**
  * Created by Tanya on 16.02.2017.
  */
+
+@Data
 class Ticket {
+
     private int numberOfTicket = 0;
     private static int number = 0;
     private int numberOfPlace;
@@ -23,29 +28,6 @@ class Ticket {
         this.isWin = false;
     }
 
-    public int getNumberOfTicket() {
-        return numberOfTicket;
-    }
-
-    private void setNumberOfTicket(int numberOfTicket) {
-        this.numberOfTicket = numberOfTicket;
-    }
-
-    public int getNumberOfPlace() {
-        return numberOfPlace;
-    }
-
-    private void setNumberOfPlace(int numberOfPlace) {
-        this.numberOfPlace = numberOfPlace;
-    }
-
-    public int getNumberOfRow() {
-        return numberOfRow;
-    }
-
-    private void setNumberOfRow(int numberOfRow) {
-        this.numberOfRow = numberOfRow;
-    }
 
     public boolean getIsWin() {
         return isWin;
@@ -56,24 +38,6 @@ class Ticket {
     }
 
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Ticket ticket = (Ticket) o;
-
-        return numberOfTicket == ticket.numberOfTicket && numberOfPlace == ticket.numberOfPlace && numberOfRow == ticket.numberOfRow;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = numberOfTicket;
-        result = 31 * result + numberOfPlace;
-        result = 31 * result + numberOfRow;
-        return result;
-    }
 
     @Override
     public String toString() {

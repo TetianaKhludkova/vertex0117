@@ -3,6 +3,7 @@ package com.vertex.academy.homework2.human;
 /**
  * Created by Tanya on 06.02.2017.
  */
+
 public class Lady extends Human {
     private int amountOfBrooch;
     private int id;

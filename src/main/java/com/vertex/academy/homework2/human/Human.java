@@ -1,58 +1,45 @@
 package com.vertex.academy.homework2.human;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import static com.vertex.academy.homework2.Main.listeners;
 
 /**
  * Created by Tanya on 10.02.2017.
  */
+
+@Getter
 public class Human implements Comparator<Human>, Comparable<Human> {
 
     private int id;
+    @Setter
     private int amountOfTickets;
     static final int MAX_AMOUNT_OF_Tickets = 5;
-
-    public int getId() {
-        return id;
-    }
-
-    public int getAmountOfTickets() {
-        return amountOfTickets;
-    }
-
-    public void setAmountOfTickets(int amountOfTickets) {
-        this.amountOfTickets = amountOfTickets;
-    }
 
     public int getRespect() {
         return 0;
     }
 
-
-
-    public ArrayList<Human> sortByRespect() {
+    public List<Human> sortByRespect() {
         if (listeners.size() > 1) {
-            ArrayList<Lady> ladies = new ArrayList<>();
-            ArrayList<Man> men = new ArrayList<>();
-            for (int i = 0; i < listeners.size() - 1; i++) {
-                if (listeners.get(i).getClass().equals(Lady.class)) {
-                    ladies.add((Lady) listeners.get(i));
-                }
-                if (listeners.get(i).getClass().equals(Man.class)) {
-                    men.add((Man) listeners.get(i));
-                }
-            }
-            listeners.removeAll(listeners);
+            List<Human> ladies = listeners.stream().filter(listeners->listeners.getClass().equals(Lady.class))
+                    .sorted(Human::compareTo)
+                    .collect(Collectors.toList());
+            List<Human> men = listeners.stream().filter(listeners->listeners.getClass().equals(Man.class))
+                    .sorted(Human::compareTo)
+                    .collect(Collectors.toList());
 
-            Collections.sort(ladies);
-            Collections.sort(men);
+            listeners.removeAll(listeners);
             listeners.addAll(ladies);
             listeners.addAll(men);
+            return listeners;
         }
-        return listeners;
+        return null;
     }
 
     @Override

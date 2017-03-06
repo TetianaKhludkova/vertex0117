@@ -9,7 +9,7 @@ import static com.vertex.academy.homework2.Main.listeners;
  */
 public class HumanQueue implements HumanObserver{
 
-    private Observers observers = null;
+    private Observers<HumanQueue> observers = null;
 
     public ArrayList<Human> addHumanToQueue(int countOfPeople) {
         HumanEnum randomHuman;
@@ -19,13 +19,15 @@ public class HumanQueue implements HumanObserver{
             switch (randomHuman) {
                 case MAN:
                     listeners.add(new Man());
+                    break;
                 case Lady:
                     listeners.add(new Lady());
-                    //default: listeners.add(new Lady());
+                    break;
+                default: return null;
             }
         }
         if (observers == null) {
-            observers = new Observers();
+            observers = new Observers<>();
             observers.add(new HumanQueue());
             observers.notifyObjectCreated(this);
         }else{
