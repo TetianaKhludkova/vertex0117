@@ -11,7 +11,7 @@ import java.util.*;
  */
 public class Main {
 
-    public static ArrayList<Human> listeners = new ArrayList<>();
+    public static LinkedList<Human> listeners = new LinkedList<>();
     private static LinkedHashMap<Ticket, Human> humanWithTicketsMap;
     private static final int INITIAL_COUNT_OF_PEOPLE = 30;
 
@@ -20,6 +20,7 @@ public class Main {
         HumanQueue humanQueue = new HumanQueue();
         listeners = humanQueue.addHumanToQueue(INITIAL_COUNT_OF_PEOPLE);
         listeners = humanQueue.addHumanToQueue(3);
+        System.out.printf("MyLinkedList: \n"+humanQueue.addHumanToMyLinkedList(3));
 
         new Main().sort();
 
@@ -27,7 +28,8 @@ public class Main {
         System.out.println(humanWithTicketsMap);
 
         Competition.startCompetitionByTheLeastRespect(humanWithTicketsMap);
-        Competition.startCompetitionByTheGreatestNumberOfTickets(humanWithTicketsMap);
+        Competition.printCompetitionByTheGreatestNumberOfTickets(humanWithTicketsMap);
+        System.out.println("\nCrocks: \n" + Competition.startCompetitionByTheGreatestNumberOfTicketsForCrocks(humanWithTicketsMap));
     }
 
     private void sort(){

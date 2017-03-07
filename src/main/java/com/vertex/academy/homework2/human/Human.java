@@ -1,5 +1,6 @@
 package com.vertex.academy.homework2.human;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,10 +15,11 @@ import static com.vertex.academy.homework2.Main.listeners;
  */
 
 @Getter
+@Setter
 public class Human implements Comparator<Human>, Comparable<Human> {
 
+
     private int id;
-    @Setter
     private int amountOfTickets;
     static final int MAX_AMOUNT_OF_Tickets = 5;
 
@@ -65,6 +67,5 @@ public class Human implements Comparator<Human>, Comparable<Human> {
         return 0;
 
     }
-
 
 }

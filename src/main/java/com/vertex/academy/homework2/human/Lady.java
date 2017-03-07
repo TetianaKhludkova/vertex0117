@@ -17,7 +17,7 @@ public class Lady extends Human {
         this.setAmountOfTickets((int)(Math.random()* MAX_AMOUNT_OF_Tickets));
     }
 
-    private void setId(int id) {
+    public void setId(int id) {
         this.id = id;
     }
     private void setAmountOfBrooch(int amountOfBrooch) {
