@@ -27,7 +27,6 @@ public class Main {
         System.out.println(humanWithTicketsMap);
 
         Competition.startCompetitionByTheLeastRespect(humanWithTicketsMap);
-
         Competition.startCompetitionByTheGreatestNumberOfTickets(humanWithTicketsMap);
     }
 

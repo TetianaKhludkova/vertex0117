@@ -5,6 +5,7 @@ package com.vertex.academy.homework2.human;
  * Created by Tanya on 06.02.2017.
  */
 public class Man extends Human {
+
     private int lengthOfMustache;
     private int id;
     private static int ID = 0;

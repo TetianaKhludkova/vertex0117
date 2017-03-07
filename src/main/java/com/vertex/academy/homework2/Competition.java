@@ -31,7 +31,6 @@ class Competition {
     private static void markWinTicketsByRespect(LinkedHashMap<Ticket, Human> humanWithTicketsMap){
         int theLeastLengthOfMustache = getTheSmallestRespect(humanWithTicketsMap)[0];
         int theSmallestNumberOfBrooch = getTheSmallestRespect(humanWithTicketsMap)[1];
-
         Set<Map.Entry<Ticket, Human>> set = humanWithTicketsMap.entrySet();
 
         set.stream().filter( human ->
@@ -43,8 +42,10 @@ class Competition {
         System.out.println("\nCompetition for the least number of respect is started!...\nWinners: ");
         Competition.markWinTicketsByRespect(humanWithTicketsMap);
         Set<Map.Entry<Ticket, Human>> entrySet = humanWithTicketsMap.entrySet();
+
         entrySet.stream().filter(hum -> hum.getKey().getIsWin())
-                .forEach( hum -> System.out.println(hum.getValue()+ ":  "+hum.getKey()));
+                .forEach( hum -> System.out.println(
+                        hum.getValue()+ ":  "+hum.getKey()));
     }
 
     //Methods for competition by the greatest number of tickets
@@ -63,10 +64,14 @@ class Competition {
 
     static void startCompetitionByTheGreatestNumberOfTickets(LinkedHashMap<Ticket, Human> humanWithTicketsMap) {
         System.out.println("\nCompetition for the greatest number of tickets is started!...\nWinners: ");
-        List<Human> listOfWinnersByNumberOfTickets = humanWithTicketsMap.values().stream().distinct().collect(Collectors.toList());
-        listOfWinnersByNumberOfTickets = Competition.findListOfHumanWithTheGreatestNumberOfTickets(listOfWinnersByNumberOfTickets);
+        List<Human> listOfWinnersByNumberOfTickets =
+                humanWithTicketsMap.values().stream().distinct().collect(Collectors.toList());
+        listOfWinnersByNumberOfTickets =
+                Competition.findListOfHumanWithTheGreatestNumberOfTickets(listOfWinnersByNumberOfTickets);
+
         for (Human hum : listOfWinnersByNumberOfTickets) {
-            System.out.println(hum.getClass().getSimpleName() + hum.getId() + ": amount of tickets: " + hum.getAmountOfTickets());
+            System.out.println(hum.getClass().getSimpleName() + hum.getId() +
+                    ": amount of tickets: " + hum.getAmountOfTickets());
         }
     }
 }

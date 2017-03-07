@@ -19,7 +19,6 @@ class Ticket {
     private static final int COUNT_OF_PLACES = 15;
     private static final int COUNT_OF_ROWS = 20;
 
-
     Ticket(){
         Random random = new Random();
         this.setNumberOfTicket(++number);
@@ -27,7 +26,6 @@ class Ticket {
         this.setNumberOfRow(random.nextInt(COUNT_OF_ROWS)+1);
         this.isWin = false;
     }
-
 
     public boolean getIsWin() {
         return isWin;
@@ -38,7 +36,6 @@ class Ticket {
     }
 
 
-
     @Override
     public String toString() {
         return "Ticket " + numberOfTicket +
@@ -47,6 +44,5 @@ class Ticket {
                 ", isWin=" + isWin +
                 "} ";
     }
-
 
 }

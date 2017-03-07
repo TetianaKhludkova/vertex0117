@@ -1,6 +1,7 @@
 package com.vertex.academy.homework2.human;
 
 import java.util.ArrayList;
+import java.util.StringJoiner;
 
 import static com.vertex.academy.homework2.Main.listeners;
 
@@ -26,6 +27,7 @@ public class HumanQueue implements HumanObserver{
                 default: return null;
             }
         }
+
         if (observers == null) {
             observers = new Observers<>();
             observers.add(new HumanQueue());
