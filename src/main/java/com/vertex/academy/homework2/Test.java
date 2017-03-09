@@ -20,10 +20,7 @@ public class Test {
 
 
         map.forEach((ticket, human) -> System.out.println(ticket + " = " + human));
-
-
         System.out.println(Winners.getWinners(map.values()));
-
 
     }
 
