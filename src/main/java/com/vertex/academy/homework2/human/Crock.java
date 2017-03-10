@@ -7,6 +7,7 @@ import lombok.*;
  */
 @Getter
 @AllArgsConstructor
+@NoArgsConstructor
 public class Crock extends Human{
     @Setter
     private int id;

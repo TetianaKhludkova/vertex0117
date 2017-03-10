@@ -24,10 +24,8 @@ public class Main {
         listeners = humanQueue.addHumanToQueue(INITIAL_COUNT_OF_PEOPLE);
         listeners = humanQueue.addHumanToQueue(3);
 
-       MyLinkedList<Human> myLinkedList = new MyLinkedList<>();
-       myLinkedList.addAndPrintListeners();
-
-        new Main().sort();
+        MyLinkedList<Human> myLinkedList = new MyLinkedList<>();
+        myLinkedList.addAndPrintListeners();
 
         humanWithTicketsMap = (new TicketWindow()).sellTicket(listeners);
         System.out.println(humanWithTicketsMap);

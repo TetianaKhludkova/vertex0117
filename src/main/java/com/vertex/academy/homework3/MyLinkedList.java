@@ -22,19 +22,19 @@ public class MyLinkedList<T extends Human>  {
         Holder next;
     }
 
-    void add(T element) throws TooShortMustachesException, LackOfBroochesException {
+    private void add(T element) throws TooShortMustachesException, LackOfBroochesException {
 
-//        Class clazz = element.getClass();
-//
-//        if(clazz.isInstance(Man.class)){
-//            if (element.getRespect() < MIN_RESPECT) {
-//                throw new TooShortMustachesException();
-//            }
-//        } else {
-//            if (element.getRespect() < MIN_RESPECT){
-//                throw new LackOfBroochesException();
-//            }
-//        }
+        Class clazz = element.getClass();
+
+        if(clazz.isInstance(Man.class)){
+            if (element.getRespect() < MIN_RESPECT) {
+                throw new TooShortMustachesException();
+            }
+        } else {
+            if (element.getRespect() < MIN_RESPECT){
+                throw new LackOfBroochesException();
+            }
+        }
 
         size++;
         Holder holder = new Holder(head, element, next);
@@ -50,27 +50,26 @@ public class MyLinkedList<T extends Human>  {
         next = holder.previous;
     }
 
-    T popFirst(){
+    private T popFirst(){
         T element = first.getInstance();
         first = first.next;
 
         return element;
     }
 
-    int size(){
+    private int size(){
         return size;
     }
 
 
     public void addAndPrintListeners() {
         MyLinkedList<Human> list = new MyLinkedList<>();
-        HumanQueue humanQueue = new HumanQueue();
 
         for(int i = 0; i < 10; i++){
             try{
-                list.add((Human) humanQueue.getHuman());
+                list.add(HumanQueue.getHuman());
             } catch (TooShortMustachesException | LackOfBroochesException e){
-                System.err.println(e.getMessage() + " in " + i);
+                System.out.println(e.getMessage() + " in " + i);
             }
         }
 
