@@ -1,8 +1,11 @@
 package com.vertex.academy.homework2;
 
+import com.vertex.academy.homework2.human.Crock;
 import com.vertex.academy.homework2.human.Human;
 import com.vertex.academy.homework2.human.HumanQueue;
-import com.vertex.academy.homework2.human.Man;
+import com.vertex.academy.homework3.Exceptions.LackOfBroochesException;
+import com.vertex.academy.homework3.Exceptions.TooShortMustachesException;
+import com.vertex.academy.homework3.MyLinkedList;
 
 import java.util.*;
 
@@ -20,7 +23,9 @@ public class Main {
         HumanQueue humanQueue = new HumanQueue();
         listeners = humanQueue.addHumanToQueue(INITIAL_COUNT_OF_PEOPLE);
         listeners = humanQueue.addHumanToQueue(3);
-        System.out.printf("MyLinkedList: \n"+humanQueue.addHumanToMyLinkedList(3));
+
+       MyLinkedList<Human> myLinkedList = new MyLinkedList<>();
+       myLinkedList.addAndPrintListeners();
 
         new Main().sort();
 
@@ -29,7 +34,13 @@ public class Main {
 
         Competition.startCompetitionByTheLeastRespect(humanWithTicketsMap);
         Competition.printCompetitionByTheGreatestNumberOfTickets(humanWithTicketsMap);
-        System.out.println("\nCrocks: \n" + Competition.startCompetitionByTheGreatestNumberOfTicketsForCrocks(humanWithTicketsMap));
+
+        HashSet<Crock> crockHashSet = Competition.startCompetitionByTheGreatestNumberOfTicketsForCrocks(humanWithTicketsMap);
+        if (crockHashSet.size()!=0) {
+            System.out.println("\nCrocks: \n" + crockHashSet);
+        }else {
+            System.out.printf("There are no crocks!)");
+        }
     }
 
     private void sort(){

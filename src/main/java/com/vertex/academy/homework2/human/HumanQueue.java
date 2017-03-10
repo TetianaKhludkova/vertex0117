@@ -1,9 +1,6 @@
 package com.vertex.academy.homework2.human;
 
-import com.vertex.academy.homework2.MyLinkedList;
-
 import java.util.LinkedList;
-
 import static com.vertex.academy.homework2.Main.listeners;
 
 /**
@@ -13,20 +10,23 @@ public class HumanQueue<Human> implements HumanObserver{
 
     private Observers<HumanQueue> observers = null;
 
-    public LinkedList<Human> addHumanToQueue(int countOfPeople) {
+    public Human getHuman(){
         HumanEnum randomHuman;
+        randomHuman = HumanEnum.getRandomHuman();
+        assert randomHuman != null;
+        switch (randomHuman) {
+            case MAN:
+                return (Human) new Man();
+            case Lady:
+                return (Human) new Lady();
+            default: return null;
+        }
+    }
+
+    public LinkedList<com.vertex.academy.homework2.human.Human> addHumanToQueue(int countOfPeople) {
+
         for (int i = 0; i < countOfPeople; i++) {
-            randomHuman = HumanEnum.getRandomHuman();
-            assert randomHuman != null;
-            switch (randomHuman) {
-                case MAN:
-                    listeners.add(new Man());
-                    break;
-                case Lady:
-                    listeners.add(new Lady());
-                    break;
-                default: return null;
-            }
+            listeners.add((com.vertex.academy.homework2.human.Human) this.getHuman());
         }
 
         if (observers == null) {
@@ -36,29 +36,29 @@ public class HumanQueue<Human> implements HumanObserver{
         }else{
             observers.notifyObjectModified(this);
         }
-        return (LinkedList<Human>) listeners;
+        return listeners;
     }
 
 
-    public MyLinkedList addHumanToMyLinkedList(int countOfPeople) {
-        HumanEnum randomHuman;
-        MyLinkedList myLinkedList = new MyLinkedList<>();
-        for (int i = 0; i < countOfPeople; i++) {
-            randomHuman = HumanEnum.getRandomHuman();
-            assert randomHuman != null;
-            switch (randomHuman) {
-                case MAN:
-                    myLinkedList.add( new Man());
-                    break;
-                case Lady:
-                    myLinkedList.add( new Lady());
-                    break;
-                default: return null;
-            }
-        }
-
-        return myLinkedList;
-    }
+//    public MyLinkedList addHumanToMyLinkedList(int countOfPeople) {
+//        HumanEnum randomHuman;
+//        MyLinkedList myLinkedList = new MyLinkedList<>();
+//        for (int i = 0; i < countOfPeople; i++) {
+//            randomHuman = HumanEnum.getRandomHuman();
+//            assert randomHuman != null;
+//            switch (randomHuman) {
+//                case MAN:
+//                    myLinkedList.add( new Man());
+//                    break;
+//                case Lady:
+//                    myLinkedList.add( new Lady());
+//                    break;
+//                default: return null;
+//            }
+//        }
+//
+//        return myLinkedList;
+//    }
 
     @Override
     public void objectCreated(Object obj) {

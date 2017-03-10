@@ -1,10 +1,10 @@
 package com.vertex.academy.homework2.human;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Comparator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -27,7 +27,7 @@ public class Human implements Comparator<Human>, Comparable<Human> {
         return 0;
     }
 
-    public List<Human> sortByRespect() {
+    public LinkedList<Human> sortByRespect() {
         if (listeners.size() > 1) {
             List<Human> ladies = listeners.stream().filter(listeners->listeners.getClass().equals(Lady.class))
                     .sorted(Human::compareTo)
@@ -67,5 +67,6 @@ public class Human implements Comparator<Human>, Comparable<Human> {
         return 0;
 
     }
+
 
 }

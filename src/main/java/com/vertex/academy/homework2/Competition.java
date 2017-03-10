@@ -18,17 +18,17 @@ class Competition {
 
     //methods for competition by the least respect
     private static int[] getTheSmallestRespect(LinkedHashMap<Ticket, Human> humanWithTicketsMap){
-        Human theSmallestNumberOfBrooch = humanWithTicketsMap.values().stream()
+        Human humanWithTheSmallestNumberOfBrooch = humanWithTicketsMap.values().stream()
                 .filter(human -> human.getClass().equals(Lady.class))
                 .min(Comparator.comparingInt(Human::getRespect))
                 .get();
 
-        Human theLeastLengthOfMustache = humanWithTicketsMap.values().stream()
+        Human humanWithTheLeastLengthOfMustache = humanWithTicketsMap.values().stream()
                 .filter(human -> human.getClass().equals(Man.class))
                 .min(Comparator.comparingInt(Human::getRespect))
                 .get();
 
-        return new int[]{theLeastLengthOfMustache.getRespect(), theSmallestNumberOfBrooch.getRespect()};
+        return new int[]{humanWithTheLeastLengthOfMustache.getRespect(), humanWithTheSmallestNumberOfBrooch.getRespect()};
     }
 
     private static void markWinTicketsByRespect(LinkedHashMap<Ticket, Human> humanWithTicketsMap){
