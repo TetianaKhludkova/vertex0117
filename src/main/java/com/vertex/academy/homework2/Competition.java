@@ -18,17 +18,16 @@ class Competition {
 
     //methods for competition by the least respect
     private static int[] getTheSmallestRespect(LinkedHashMap<Ticket, Human> humanWithTicketsMap){
-        Human humanWithTheSmallestNumberOfBrooch = humanWithTicketsMap.values().stream()
-                .filter(human -> human.getClass().equals(Lady.class))
-                .min(Comparator.comparingInt(Human::getRespect))
-                .get();
-
-        Human humanWithTheLeastLengthOfMustache = humanWithTicketsMap.values().stream()
-                .filter(human -> human.getClass().equals(Man.class))
-                .min(Comparator.comparingInt(Human::getRespect))
-                .get();
-
+        Human humanWithTheSmallestNumberOfBrooch = getHumanWithTheSmallestRespect(humanWithTicketsMap, Lady.class);
+        Human humanWithTheLeastLengthOfMustache = getHumanWithTheSmallestRespect(humanWithTicketsMap, Man.class);
         return new int[]{humanWithTheLeastLengthOfMustache.getRespect(), humanWithTheSmallestNumberOfBrooch.getRespect()};
+    }
+
+    private static Human getHumanWithTheSmallestRespect(LinkedHashMap<Ticket, Human> humanWithTicketsMap, Class clazz) {
+        return humanWithTicketsMap.values().stream()
+                .filter(human -> human.getClass().equals(clazz))
+                .min(Comparator.comparingInt(Human::getRespect))
+                .get();
     }
 
     private static void markWinTicketsByRespect(LinkedHashMap<Ticket, Human> humanWithTicketsMap){
@@ -39,9 +38,9 @@ class Competition {
         set.stream().filter( human ->
                 ((human.getValue().getClass().equals(Man.class))
                         & (human.getValue().getRespect()== theLeastLengthOfMustache)
-                 || (human.getValue().getClass().equals(Lady.class))
+                        || (human.getValue().getClass().equals(Lady.class))
                         & (human.getValue().getRespect()== theSmallestNumberOfBrooch)))
-                .forEach( human -> human.getKey().setIsWin(true));
+                .forEach( human -> human.getKey().setWin(true));
     }
 
     static void startCompetitionByTheLeastRespect(LinkedHashMap<Ticket, Human> humanWithTicketsMap){
@@ -93,13 +92,12 @@ class Competition {
         HashSet<Human> hashSet1 = Competition.startCompetitionByTheGreatestNumberOfTickets(humanWithTicketsMap);
         for (Human human: humanWithTicketsMap.values()){
             if ((human.getId()%3==0)&& !(hashSet1.contains(human))){
-                Crock crock = new Crock(human.getId(), human.getAmountOfTickets(), human.getClass().getSimpleName());
+                Crock crock = new Crock(human.getId(), human.getAmountOfTickets(), human.getClass().getSimpleName(), human.getRespect());
                 hashSet.add(crock);
             }
         }
 
         return hashSet;
     }
-
 
 }

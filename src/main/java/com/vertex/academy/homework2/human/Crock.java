@@ -13,6 +13,8 @@ public class Crock extends Human{
     private int id;
     private int amountOfTickets;
     private String gender;
+    public int respect;
+    public static final int MIN_RESPECT = -1;
 
     @Override
     public boolean equals(Object o) {
@@ -24,7 +26,13 @@ public class Crock extends Human{
     public String toString() {
         return "{"+ gender +
                 " id" + id +
+                ": respect=" + respect +
                 ": amountOfTickets=" + amountOfTickets +
                 "}\n";
+    }
+
+    @Override
+    public int compareTo(Human o) {
+        return 1;
     }
 }

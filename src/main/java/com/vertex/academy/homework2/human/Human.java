@@ -18,22 +18,14 @@ import static com.vertex.academy.homework2.Main.listeners;
 @Setter
 public class Human implements Comparator<Human>, Comparable<Human> {
 
-    private int id;
+    private int id, respect;
     private int amountOfTickets;
-    static final int MAX_AMOUNT_OF_Tickets = 5;
+    static final int MAX_AMOUNT_OF_TICKETS = 5;
 
-    public int getRespect() {
-        return 0;
-    }
-
-    public LinkedList<Human> sortByRespect() {
+    LinkedList<Human> sortByRespect() {
         if (listeners.size() > 1) {
-            List<Human> ladies = listeners.stream().filter(listeners->listeners.getClass().equals(Lady.class))
-                    .sorted(Human::compareTo)
-                    .collect(Collectors.toList());
-            List<Human> men = listeners.stream().filter(listeners->listeners.getClass().equals(Man.class))
-                    .sorted(Human::compareTo)
-                    .collect(Collectors.toList());
+            List<Human> ladies = getHumansSorted(Lady.class);
+            List<Human> men = getHumansSorted(Man.class);
 
             listeners.removeAll(listeners);
             listeners.addAll(ladies);
@@ -41,6 +33,12 @@ public class Human implements Comparator<Human>, Comparable<Human> {
             return listeners;
         }
         return null;
+    }
+
+    private List<Human> getHumansSorted(Class clazz) {
+        return listeners.stream().filter(listeners->listeners.getClass().equals(clazz))
+                .sorted(Human::compareTo)
+                .collect(Collectors.toList());
     }
 
     @Override

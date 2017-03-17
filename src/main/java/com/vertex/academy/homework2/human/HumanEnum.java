@@ -3,7 +3,7 @@ package com.vertex.academy.homework2.human;
 /**
  * Created by Tanya on 10.02.2017.
  */
-enum HumanEnum {
+public enum HumanEnum {
     MAN, Lady;
 
     public static HumanEnum getRandomHuman(){

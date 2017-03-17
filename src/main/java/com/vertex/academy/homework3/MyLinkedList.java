@@ -7,12 +7,15 @@ import com.vertex.academy.homework3.Exceptions.TooShortMustachesException;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.lang.reflect.Field;
+
 public class MyLinkedList<T extends Human>  {
     private Holder next;
     private Holder head;
     private Holder first;
     private int size = 0;
     private static final int MIN_RESPECT = 1;
+    private static final int NUMBER_OF_Listeners = 10;
 
     @Data
     @AllArgsConstructor
@@ -26,13 +29,26 @@ public class MyLinkedList<T extends Human>  {
 
         Class clazz = element.getClass();
 
-        if(clazz.isInstance(Man.class)){
+        if(clazz == Man.class){
             if (element.getRespect() < MIN_RESPECT) {
                 throw new TooShortMustachesException();
             }
-        } else {
+        } else if (clazz == Lady.class){
             if (element.getRespect() < MIN_RESPECT){
                 throw new LackOfBroochesException();
+            }
+        }
+
+        if(clazz == Crock.class) {
+            try {
+                Field fieldOfRespect = clazz.getField("respect");
+                fieldOfRespect.setAccessible(true);
+                int newRespect = 10;
+                fieldOfRespect.set(element, newRespect);
+            } catch (NoSuchFieldException e) {
+                System.out.println("NoSuchFieldException "+e);
+            } catch (IllegalAccessException e) {
+                System.out.println("IllegalAccessException "+e);
             }
         }
 
@@ -62,19 +78,32 @@ public class MyLinkedList<T extends Human>  {
     }
 
 
-    public void addAndPrintListeners() {
-        MyLinkedList<Human> list = new MyLinkedList<>();
+    public MyLinkedList<? extends Human> addListeners() {
+        MyLinkedList<Human> humanMyLinkedList = new MyLinkedList<>();
 
-        for(int i = 0; i < 10; i++){
+        for(int i = 0; i < NUMBER_OF_Listeners/2; i++){
             try{
-                list.add(HumanQueue.getHuman());
+                humanMyLinkedList.add(HumanQueue.getHuman());
             } catch (TooShortMustachesException | LackOfBroochesException e){
-                System.out.println(e.getMessage() + " in " + i);
+                System.out.println(e.getMessage());
             }
         }
 
+        for(int i = 0; i < NUMBER_OF_Listeners/2; i++){
+            try{
+                String gender = "Crock "+HumanEnum.getRandomHuman();
+                humanMyLinkedList.add(new Crock(i, 0, gender, Crock.MIN_RESPECT));
+            } catch (TooShortMustachesException | LackOfBroochesException e){
+                System.out.println(e.getMessage());
+            }
+        }
+
+        return humanMyLinkedList;
+    }
+
+    public void printListeners(MyLinkedList list) {
         System.out.println("\n Listeners from myLinkedList:\n");
-        for(int i = 0; i < list.size(); i++){
+        for (int i = 0; i < list.size(); i++) {
             System.out.println(list.popFirst());
         }
     }

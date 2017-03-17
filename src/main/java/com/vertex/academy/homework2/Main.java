@@ -3,8 +3,6 @@ package com.vertex.academy.homework2;
 import com.vertex.academy.homework2.human.Crock;
 import com.vertex.academy.homework2.human.Human;
 import com.vertex.academy.homework2.human.HumanQueue;
-import com.vertex.academy.homework3.Exceptions.LackOfBroochesException;
-import com.vertex.academy.homework3.Exceptions.TooShortMustachesException;
 import com.vertex.academy.homework3.MyLinkedList;
 
 import java.util.*;
@@ -25,7 +23,8 @@ public class Main {
         listeners = humanQueue.addHumanToQueue(3);
 
         MyLinkedList<Human> myLinkedList = new MyLinkedList<>();
-        myLinkedList.addAndPrintListeners();
+        MyLinkedList<? extends Human> humanMyLinkedList = myLinkedList.addListeners();
+        myLinkedList.printListeners(humanMyLinkedList);
 
         humanWithTicketsMap = (new TicketWindow()).sellTicket(listeners);
         System.out.println(humanWithTicketsMap);
@@ -39,14 +38,6 @@ public class Main {
         }else {
             System.out.printf("There are no crocks!)");
         }
-    }
-
-    private void sort(){
-        listeners.sort(new Human());
-        System.out.println("\n========== sortedByGender ============\n"+ listeners);
-
-        new Human().sortByRespect();
-        System.out.println("========== sortedByRespect ============\n"+ listeners);
     }
 
 }
