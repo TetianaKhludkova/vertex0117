@@ -24,13 +24,13 @@ public class MainHomeworkCollections {
         listeners.setComparator(comparator);
 
         for (i = 0; i < 15; i++) {
-            listeners.addRandomListener();
+            listeners.addRandomListener(Listener::getRandomListener);
         }
 
         listeners.setToComparable();
 
         for (i = 0; i < 15; i++) {
-            listeners.addRandomListener();
+            listeners.addRandomListener(Listener::getRandomListener);
         }
 
         return listeners;

@@ -3,6 +3,7 @@ package com.vertex.academy.homeworkcollections.forlistener;
 import com.vertex.academy.homeworkcollections.Gender;
 
 import java.util.*;
+import java.util.function.Supplier;
 
 /**
  * Created by Aile (on Valery) on 2/15/2017.
@@ -32,7 +33,7 @@ public class Listeners {
 
     public void setComparator(Comparator<Listener> comparator) {
         this.comparator = comparator;
-        Collections.sort(this.listenersList, this.comparator);
+        (this.listenersList).sort(this.comparator);
     }
 
     public void setToComparable() {
@@ -40,14 +41,11 @@ public class Listeners {
         Collections.sort(this.listenersList);
     }
 
-    public Listener addRandomListener() {
+    public Listener addRandomListener(Supplier<Listener> supplier) {
 
         Listener listener;
 
-        listener = new Listener.Builder()
-                            .setGender(Gender.GetRandomGender())
-                            .setEsteem(new Random().nextInt(50000))
-                            .Build();
+        listener = supplier.get();
 
         this.addListener(listener);
 

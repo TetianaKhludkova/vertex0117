@@ -2,6 +2,8 @@ package com.vertex.academy.homeworkcollections.forlistener;
 
 import com.vertex.academy.homeworkcollections.Gender;
 
+import java.util.Random;
+
 /**
  * Created by Aile (on Valery) on 2/10/2017.
  */
@@ -80,6 +82,15 @@ public class Listener implements Comparable<Listener> {
         } else {
             return this.pinCount;
         }
+
+    }
+
+    public static Listener getRandomListener() {
+
+        return new Listener.Builder()
+                .setGender(Gender.GetRandomGender())
+                .setEsteem(new Random().nextInt(50000))
+                .Build();
 
     }
 
