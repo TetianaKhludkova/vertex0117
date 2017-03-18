@@ -48,16 +48,6 @@ public class ListOfListeners<T extends Listener> {
 
         int esteem = item.getEsteem();
 
-//        if (item.getGender() == Gender.LADY) {
-//            if (esteem <= minPinCount) {
-//                throw new LackOfBroochesException();
-//            }
-//        } else {
-//            if (esteem <= minMustacheLength) {
-//                throw new TooShortMustachesException();
-//            }
-//        }
-
         if (item.getGender() == Gender.LADY) {
             if (item.compareTo(new Listener.Builder()
                                     .setGender(Gender.LADY)
