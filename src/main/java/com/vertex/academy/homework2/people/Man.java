@@ -18,7 +18,7 @@ public class Man implements Human, Comparable<Human> {
 
     public Man(int length, String name) {
         this.length = length;
-        this.name = name;
+        this.name = (name == null) ? "James" : name;
     }
 
     public Man(){

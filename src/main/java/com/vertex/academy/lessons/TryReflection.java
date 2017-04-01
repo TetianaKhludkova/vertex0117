@@ -1,6 +1,6 @@
 package com.vertex.academy.lessons;
 
-import org.junit.jupiter.api.Test;
+
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -17,13 +17,6 @@ public class TryReflection {
     public int publicInt = 0;
 
     public static void main(String[] args) throws NoSuchFieldException {
-//        printArray(Test.class.getDeclaredAnnotations());
-//        System.out.println();
-//        printArray(Test.class.getAnnotations());
-//
-//        Field field = String.class.getDeclaredField("hash");
-//        field.setAccessible(true);
-//        System.out.println(field.getModifiers());
 
         Field[] fields = TryReflection.class.getDeclaredFields();
 

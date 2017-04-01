@@ -19,7 +19,7 @@ public class Woman implements Human, Comparable<Human> {
 
     public Woman(int count, String name) {
         this.count = count;
-        this.name = name;
+        this.name = (name == null) ? "Kitty" : name;
     }
 
     public Woman(){
