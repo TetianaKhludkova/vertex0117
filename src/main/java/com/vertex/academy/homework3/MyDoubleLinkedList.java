@@ -2,7 +2,6 @@ package com.vertex.academy.homework3;
 
 import com.vertex.academy.homework2.people.Human;
 import com.vertex.academy.homework2.people.Man;
-import com.vertex.academy.homework2.people.Woman;
 import com.vertex.academy.homework3.exceptions.LackOfBroochesException;
 import com.vertex.academy.homework3.exceptions.TooShortMustashesException;
 import lombok.AllArgsConstructor;
@@ -10,26 +9,24 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.naming.ldap.PagedResultsControl;
-import java.util.Random;
-
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * Created by andrew_yashin on 3/9/17.
  */
-public class MyDoubleLinkedList<T extends Human>  {
+public class MyDoubleLinkedList<T extends Human> implements Iterable<T> {
     private Node prev;
     private Node head;
     private Node first;
     private int size = 0;
 
-    private static int minimalLength, minimalCount;
+    private int minimalLength, minimalCount;
 
-    static {
-        minimalCount = 2;
-        minimalLength = 3;
+    public MyDoubleLinkedList(int minimalLength, int minimalCount) {
+        this.minimalLength = minimalLength;
+        this.minimalCount = minimalCount;
     }
-
 
     @Data
     @AllArgsConstructor
@@ -84,39 +81,36 @@ public class MyDoubleLinkedList<T extends Human>  {
         return element;
     }
 
+    public T peekFirst(){
+        return first.getInstance();
+    }
+
+    public T peekLast(){
+        return head.getInstance();
+    }
 
     public int size(){
         return size;
     }
 
-
-    public static void main(String[] args) {
-        MyDoubleLinkedList<Human> list =
-                new MyDoubleLinkedList<>();
-
-        for(int i = 0; i < 10; i++){
-            try{
-                list.add(getHuman());
-            } catch (TooShortMustashesException e){
-                System.err.println(e.getMessage() + " in " + i);
-            } catch (LackOfBroochesException e){
-                System.err.println(e.getMessage() + " in " + i);
-            }
-        }
-
-        for(int i = 0; i < list.size(); i++){
-            System.out.println(list.popFirst());
-        }
+    @Override
+    public Iterator<T> iterator() {
+        return new MyListIterator();
     }
 
-    private static Human getHuman(){
-        Random random = new Random();
+    private class MyListIterator implements Iterator<T>{
+        private Node element = first;
 
-        switch (random.nextInt(2)){
-            case 0: return new Man();
-            default: return new Woman();
+        @Override
+        public boolean hasNext() {
+            return (element != null);
+        }
+
+        @Override
+        public T next() {
+            T value = element.instance;
+            element = element.next;
+            return value;
         }
     }
-
-
 }
