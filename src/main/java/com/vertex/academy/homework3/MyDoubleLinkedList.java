@@ -30,6 +30,7 @@ public class MyDoubleLinkedList<T extends Human> implements Iterable<T> {
 
     @Data
     @AllArgsConstructor
+    // TODO: 24.04.17 getters and setters are included into @Data
     @Getter
     @Setter
     private class Node {
