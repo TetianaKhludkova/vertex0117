@@ -33,6 +33,8 @@ public class ConcertHall {
                 int row = random.nextInt(countOfRows);
                 int seat = random.nextInt(countOfSeats);
 
+                // TODO: 24.04.17 it will not return unique tickets (you don't mark them as sold)
+                // TODO: 24.04.17 and it could take a lot of time to heat a correct ticket
                 if(!seats[row][seat]) {
                     return new Ticket(row, seat);
                 }

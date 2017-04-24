@@ -18,6 +18,7 @@ public class Listener {
     private PriorityQueue<Human> queuePeople;
     private PriorityQueue<Human> queuePeopleGet;
     private Comparator<Human> comparator;
+    // TODO: 24.04.17 not used
     private int countOfPeople;
 
     public Listener(boolean isComparator,int countOfPeople){

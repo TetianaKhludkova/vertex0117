@@ -22,6 +22,8 @@ public class TicketWindow {
         while (!queue.isEmpty()) {
             switch (random.nextInt(2)) {
                 case 0:
+                    //todo: same parts that are contained in both cases
+                    //todo: could be placed out of switch
                     Ticket ticket = hall.nextTicket();
                     if (ticket == null) {
                         return map;
