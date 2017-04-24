@@ -33,6 +33,7 @@ public class Artist {
 
             System.out.println("#"+ (i+1) + ": " + figureList.pop());
             // TODO: 05.02.17 why is it commented? - Because i used pop
+            // TODO: 24.04.17 then delete it =)
 //            figureList.removeFirst();
         }
     }
